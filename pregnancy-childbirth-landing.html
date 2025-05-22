@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>임신·출산 지원 - 복지정책 정보 사이트</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #fff;
+            min-height: 100vh;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        .hamburger-menu {
+            display: block;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            width: 30px;
+            height: 22px;
+            z-index: 1001;
+            cursor: pointer;
+        }
+        .hamburger-menu span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            margin-bottom: 5px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100%;
+            background-color: #fff;
+            z-index: 1000;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            padding-top: 50px;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .menu-item {
+            display: block;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .menu-item:hover, .menu-item.active {
+            background-color: #f5f7fa;
+            color: #0275ff;
+        }
+        .menu-icon {
+            margin-right: 10px;
+            color: #0275ff;
+        }
+        .policy-card {
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+        .policy-card:hover {
+            transform: translateY(-3px);
+        }
+        .policy-icon {
+            font-size: 2rem;
+            color: #0275ff;
+        }
+        .see-more-btn {
+            background-color: #0275ff;
+            color: white;
+            border-radius: 5px;
+            padding: 8px 16px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .see-more-btn:hover {
+            background-color: #0260cc;
+        }
+        .ad-container {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin: 15px 0;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #888;
+        }
+        .category-badge {
+            background-color: #ffebf0;
+            color: #ff6b93;
+            border-radius: 20px;
+            padding: 3px 10px;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+        .related-card {
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #e5e7eb;
+            transition: transform 0.2s;
+        }
+        .related-card:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hamburger Menu Button -->
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <div class="sidebar" id="sidebar">
+            <a href="/main" class="menu-item">
+                <i class="menu-icon">🏠</i> 홈
+            </a>
+            <a href="/category/pregnancy-childbirth" class="menu-item active">
+                <i class="menu-icon">🤰</i> 임신·출산 지원
+            </a>
+            <a href="/category/infant-care" class="menu-item">
+                <i class="menu-icon">🍼</i> 영유아 양육 지원
+            </a>
+            <a href="/category/childcare-education" class="menu-item">
+                <i class="menu-icon">📚</i> 보육·교육 지원
+            </a>
+            <a href="/category/work-family-balance" class="menu-item">
+                <i class="menu-icon">💼</i> 일·가정 양립 지원
+            </a>
+            <a href="/category/housing-support" class="menu-item">
+                <i class="menu-icon">🏡</i> 신혼부부·출산가구 주거 지원
+            </a>
+            <a href="/category/multi-child-family" class="menu-item">
+                <i class="menu-icon">👨‍👩‍👧‍👦</i> 다자녀 가구 지원
+            </a>
+            <a href="/category/low-income-single-parent" class="menu-item">
+                <i class="menu-icon">🛡️</i> 저소득층 및 한부모 가족 지원
+            </a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="px-5 pt-14 pb-10">
+            <!-- Breadcrumb -->
+            <div class="text-sm text-gray-500 mb-4">
+                <a href="/main" class="hover:text-blue-500">홈</a> &gt; 임신·출산 지원
+            </div>
+
+            <!-- Category Header -->
+            <div class="flex items-center mb-6">
+                <div class="text-blue-500 text-4xl mr-3">🤰</div>
+                <h1 class="text-2xl font-bold">임신·출산 지원</h1>
+            </div>
+
+            <!-- Category Description -->
+            <div class="mb-6">
+                <p class="text-gray-700">임신과 출산 과정에서 필요한 다양한 지원 정책을 알아보세요. 의료비부터 산후조리 서비스까지, 임신과 출산을 위한 정부 지원을 한눈에 확인하실 수 있습니다.</p>
+                <p class="text-sm text-gray-500 mt-2">* 2025년 기준 정보이며, 정책 변경 가능성이 있으니 최종 확인 바랍니다.</p>
+            </div>
+
+            <!-- Top Ad Space -->
+            <div class="ad-container">
+                <p>광고 영역</p>
+                <div class="bg-gray-200 h-20 flex items-center justify-center">
+                    <p>728x90 또는 320x100 광고</p>
+                </div>
+            </div>
+
+            <!-- Policies List -->
+            <h2 class="text-xl font-bold mt-8 mb-4">임신·출산 지원 정책</h2>
+
+            <!-- Policy 1 -->
+            <div class="policy-card">
+                <div class="bg-pink-50 p-4">
+                    <span class="category-badge">의료비</span>
+                    <h3 class="text-lg font-bold mt-2">임신·출산 진료비 지원 (국민행복카드)</h3>
+                </div>
+                <div class="p-4">
+                    <p class="text-gray-700 mb-3">임신 및 출산과 관련된 진료비 부담을 줄이기 위해 국민행복카드를 통해 일정 금액을 지원합니다. 병원 진료비, 약제비, 처방된 영양제 등에 사용 가능합니다.</p>
+                    <p class="text-blue-600 font-medium mb-3">지원금액: 1인당 100만원 (다태아 140만원)</p>
+                    <div class="flex justify-end">
+                        <a href="/category/pregnancy-childbirth/medical-expense" class="see-more-btn">자세히 보기</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Policy 2 -->
+            <div class="policy-card">
+                <div class="bg-pink-50 p-4">
+                    <span class="category-badge">의료비</span>
+                    <h3 class="text-lg font-bold mt-2">고위험 임산부 의료비 지원</h3>
+                </div>
+                <div class="p-4">
+                    <p class="text-gray-700 mb-3">고위험 임신으로 진단받은 임산부의 입원치료비 중 비급여 항목과 전액본인부담금을 지원하는 제도입니다.</p>
+                    <p class="text-blue-600 font-medium mb-3">지원범위: 비급여 본인부담금의 90% (1인당 최대 300만원)</p>
+                    <div class="flex justify-end">
+                        <a href="/category/pregnancy-childbirth/high-risk" class="see-more-btn">자세히 보기</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Ad Space -->
+            <div class="ad-container my-6">
+                <p>광고 영역</p>
+                <div class="bg-gray-200 h-28 flex items-center justify-center">
+                    <p>300x250 광고</p>
+                </div>
+            </div>
+
+            <!-- Policy 3 -->
+            <div class="policy-card">
+                <div class="bg-pink-50 p-4">
+                    <span class="category-badge">의료비</span>
+                    <h3 class="text-lg font-bold mt-2">청소년 산모 임신·출산 의료비 지원</h3>
+                </div>
+                <div class="p-4">
+                    <p class="text-gray-700 mb-3">만 19세 이하 청소년 산모를 위한 의료비 지원 제도로, 임신 및 출산에 필요한 의료비를 지원합니다.</p>
+                    <p class="text-blue-600 font-medium mb-3">지원금액: 1인당 120만원 바우처</p>
+                    <div class="flex justify-end">
+                        <a href="/category/pregnancy-childbirth/teen-mother" class="see-more-btn">자세히 보기</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Policy 4 -->
+            <div class="policy-card">
+                <div class="bg-pink-50 p-4">
+                    <span class="category-badge">축하금</span>
+                    <h3 class="text-lg font-bold mt-2">출산 축하금/서비스</h3>
+                </div>
+                <div class="p-4">
+                    <p class="text-gray-700 mb-3">자녀 출산을 축하하기 위해 지방자치단체별로 제공하는 현금, 상품권, 출산용품 등 다양한 축하 서비스입니다.</p>
+                    <p class="text-blue-600 font-medium mb-3">지원금액: 지역별로 상이 (10만원~200만원)</p>
+                    <div class="flex justify-end">
+                        <a href="/category/pregnancy-childbirth/congratulation" class="see-more-btn">자세히 보기</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Policy 5 -->
+            <div class="policy-card">
+                <div class="bg-pink-50 p-4">
+                    <span class="category-badge">돌봄</span>
+                    <h3 class="text-lg font-bold mt-2">산모·신생아 건강관리 지원 (산후도우미)</h3>
+                </div>
+                <div class="p-4">
+                    <p class="text-gray-700 mb-3">출산 가정에 건강관리사가 방문하여 산모의 건강회복과 신생아 양육을 돕는 서비스입니다.</p>
+                    <p class="text-blue-600 font-medium mb-3">지원기간: 5일~25일 (자녀 수, 출산 유형에 따라 다름)</p>
+                    <div class="flex justify-end">
+                        <a href="/category/pregnancy-childbirth/health-service" class="see-more-btn">자세히 보기</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Policy 6 -->
+            <div class="policy-card">
+                <div class="bg-pink-50 p-4">
+                    <span class="category-badge">물품</span>
+                    <h3 class="text-lg font-bold mt-2">기저귀·조제분유 지원</h3>
+                </div>
+                <div class="p-4">
+                    <p class="text-gray-700 mb-3">만 2세 미만 영아를 둔 저소득층 가구를 대상으로 기저귀 및 조제분유 구매 비용을 지원합니다.</p>
+                    <p class="text-blue-600 font-medium mb-3">지원품목: 기저귀(월 8만원), 조제분유(월 9만원)</p>
+                    <div class="flex justify-end">
+                        <a href="/category/pregnancy-childbirth/diaper-formula" class="see-more-btn">자세히 보기</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Ad Space -->
+            <div class="ad-container my-6">
+                <p>광고 영역</p>
+                <div class="bg-gray-200 h-20 flex items-center justify-center">
+                    <p>728x90 또는 320x100 광고</p>
+                </div>
+            </div>
+
+            <!-- Related Categories -->
+            <h2 class="text-xl font-bold mt-8 mb-4">관련 정책 카테고리</h2>
+            
+            <div class="grid grid-cols-1 gap-4">
+                <a href="/category/infant-care" class="related-card bg-yellow-50">
+                    <div class="flex items-center">
+                        <div class="text-blue-500 text-3xl mr-3">🍼</div>
+                        <div>
+                            <h3 class="font-bold">영유아 양육 지원</h3>
+                            <p class="text-sm text-gray-600">첫만남이용권, 부모급여, 아동수당 등</p>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="/category/childcare-education" class="related-card bg-blue-50">
+                    <div class="flex items-center">
+                        <div class="text-blue-500 text-3xl mr-3">📚</div>
+                        <div>
+                            <h3 class="font-bold">보육·교육 지원</h3>
+                            <p class="text-sm text-gray-600">어린이집 보육료, 유치원 유아학비 등</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Footer -->
+            <div class="mt-12 pt-6 border-t border-gray-200 text-center text-sm text-gray-500">
+                <p>본 정보는 2025년 기준이며, 정책 내용은 변경될 수 있습니다.</p>
+                <p>최신 정보는 복지로(www.bokjiro.go.kr)에서 확인하세요.</p>
+                <p class="mt-2">© 2025 복지정책 정보 사이트. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Hamburger menu toggle
+        document.getElementById('hamburgerMenu').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('active');
+        });
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const hamburger = document.getElementById('hamburgerMenu');
+            
+            if (!sidebar.contains(event.target) && !hamburger.contains(event.target) && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+        });
+
+        // Menu item click handling
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active class from current active menu item
+                const currentActive = document.querySelector('.menu-item.active');
+                if (currentActive) {
+                    currentActive.classList.remove('active');
+                }
+                
+                // Add active class to clicked menu item
+                this.classList.add('active');
+                
+                // Close sidebar on mobile after selection
+                document.getElementById('sidebar').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

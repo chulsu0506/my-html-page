@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다자녀 가구 지원 - 복지정책 정보 사이트</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #fff;
+            min-height: 100vh;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        
+        .header {
+            background-color: #0275ff;
+            color: white;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .hamburger-menu {
+            display: block;
+            position: absolute;
+            top: 20px;
+            left: 15px;
+            width: 30px;
+            height: 22px;
+            z-index: 1001;
+            cursor: pointer;
+        }
+        
+        .hamburger-menu span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            margin-bottom: 5px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100%;
+            background-color: #fff;
+            z-index: 1000;
+            padding: 60px 20px 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        .sidebar.active {
+            left: 0;
+        }
+        
+        .menu-item {
+            display: block;
+            padding: 12px 15px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.2s ease;
+        }
+        
+        .menu-item:hover, .menu-item.active {
+            background-color: #e6f2ff;
+            color: #0275ff;
+        }
+        
+        .menu-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        
+        .intro-section {
+            padding: 20px 15px;
+            background-color: #f0f7ff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .policy-card {
+            padding: 20px;
+            border-bottom: 1px solid #e5e7eb;
+            position: relative;
+        }
+        
+        .icon-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: #e6f2ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .policy-icon {
+            width: 24px;
+            height: 24px;
+            color: #0275ff;
+        }
+        
+        .policy-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #0275ff;
+        }
+        
+        .policy-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+        
+        .detail-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #0275ff;
+            color: white;
+            border-radius: 5px;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        .detail-btn:hover {
+            background-color: #0260cc;
+        }
+        
+        .ad-container {
+            padding: 15px;
+            background-color: #f9f9f9;
+            text-align: center;
+            margin: 15px 0;
+            border: 1px dashed #ccc;
+        }
+        
+        .related-section {
+            padding: 20px;
+            background-color: #f0f7ff;
+        }
+        
+        .related-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .related-card {
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        footer {
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #ff5722;
+            color: white;
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <header class="header">
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <h1 class="text-center font-bold text-xl">다자녀 가구 지원</h1>
+        </header>
+        
+        <!-- 사이드바 메뉴 -->
+        <div class="sidebar">
+            <a href="#" class="menu-item">
+                <svg xmlns="http://www.w3.org/2000/svg" class="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                메인 페이지
+            </a>
+            <a href="#" class="menu-item">
+                <svg xmlns="http://www.w3.org/2000/svg" class="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                임신·출산 지원
+            </a>
+            <a href="#" class="menu-item">
+                <svg xmlns="http://www.w3.org/2000/svg" class="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                </svg>
+                영유아 양육 지원
+            </a>
+            <a href="#" class="menu-item">
+                <svg xmlns="http://www.w3.org/2000/svg" class="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+                보육·교육 지원
+            </a>
+            <a href="#" class="menu-item">
+                <svg xmlns="http://www.w3.org/2000/svg" class="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                일·가정 양립 지원
+            </a>
+            <a href="#" class="menu-item">
+                <svg xmlns="http://www.w3.org/2000/svg" class="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                신혼부부·출산가구 주거 지원
+            </a>
+            <a href="#" class="menu-item active">
+                <svg xmlns="http://www.w3.org/2000/svg" class="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                다자녀 가구 지원
+            </a>
+            <a href="#" class="menu-item">
+                <svg xmlns="http://www.w3.org/2000/svg" class="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                기타 저소득층 및 한부모 가족 지원
+            </a>
+        </div>
+        
+        <!-- 인트로 섹션 -->
+        <section class="intro-section">
+            <h2 class="text-xl font-bold mb-3">다자녀 가구를 위한 다양한 혜택</h2>
+            <p class="mb-2">자녀 양육에 따른 경제적 부담을 줄이고 출산을 장려하기 위해 다양한 지원 정책이 마련되어 있습니다.</p>
+            <p class="font-bold text-blue-600">2025년부터 많은 정책에서 <span class="bg-yellow-100 px-1">다자녀 기준이 2자녀로 확대</span>되는 추세입니다!</p>
+        </section>
+        
+        <!-- 상단 광고 -->
+        <div class="ad-container">
+            <p class="text-gray-400 mb-2">광고</p>
+            <div class="bg-gray-200 h-24 flex items-center justify-center">
+                <p class="text-gray-500">728x90 또는 320x100 광고 영역</p>
+            </div>
+        </div>
+        
+        <!-- 정책 목록 -->
+        <section>
+            <!-- 정책 1 -->
+            <div class="policy-card">
+                <div class="badge">인기</div>
+                <div class="flex">
+                    <div class="icon-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="policy-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="policy-title">다자녀 가구 주택 특별공급</h3>
+                        <p class="policy-desc">미성년 자녀 3명 이상(일부 경우 2명 이상) 둔 무주택 가구에게 주택을 우선 공급하는 제도입니다. 공공·민영주택 모두 해당되며, 일반공급보다 경쟁률이 낮아 당첨 가능성이 높습니다.</p>
+                        <a href="#" class="detail-btn">자세히 보기</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 정책 2 -->
+            <div class="policy-card">
+                <div class="flex">
+                    <div class="icon-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="policy-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="policy-title">다자녀 가구 주택자금 대출 우대</h3>
+                        <p class="policy-desc">주택 구입이나 전세 시 정부 지원 대출(디딤돌, 버팀목)에서 일반 가구보다 낮은 금리, 높은 한도 등 우대 혜택을 제공합니다. 2자녀부터 적용되는 경우가 늘고 있습니다.</p>
+                        <a href="#" class="detail-btn">자세히 보기</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 정책 3 -->
+            <div class="policy-card">
+                <div class="flex">
+                    <div class="icon-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="policy-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 8h6m-5 0a3 3 0 110 6H9l3 3m-3-6h6m6 1a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="policy-title">다자녀 가구 세금 감면 혜택</h3>
+                        <p class="policy-desc">자녀 세액공제, 출산·입양 세액공제, 자동차 취득세 감면 등 세금 혜택을 받을 수 있습니다. 특히 만 18세 미만 자녀 3명 이상 가구는 자동차 취득세가 대폭 감면됩니다.</p>
+                        <a href="#" class="detail-btn">자세히 보기</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 중간 광고 -->
+            <div class="ad-container">
+                <p class="text-gray-400 mb-2">광고</p>
+                <div class="bg-gray-200 h-24 flex items-center justify-center">
+                    <p class="text-gray-500">300x250 광고 영역</p>
+                </div>
+            </div>
+            
+            <!-- 정책 4 -->
+            <div class="policy-card">
+                <div class="flex">
+                    <div class="icon-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="policy-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="policy-title">다자녀 가구 양육 및 교육 지원</h3>
+                        <p class="policy-desc">어린이집/유치원 우선 입소, 다자녀 국가장학금, 학자금 대출 이자 면제 등 교육 관련 혜택을 받을 수 있습니다. 2자녀부터 우선권을 부여하는 경우가 많습니다.</p>
+                        <a href="#" class="detail-btn">자세히 보기</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 정책 5 -->
+            <div class="policy-card">
+                <div class="flex">
+                    <div class="icon-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="policy-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="policy-title">다자녀 가구 공공요금 및 공공시설 이용 할인</h3>
+                        <p class="policy-desc">전기요금, 도시가스요금, 지역난방비 등 공공요금 할인과 KTX, 박물관, 국립공원 등 공공시설 이용 시 다양한 할인 혜택을 받을 수 있습니다.</p>
+                        <a href="#" class="detail-btn">자세히 보기</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 정책 6 -->
+            <div class="policy-card">
+                <div class="badge">지역별</div>
+                <div class="flex">
+                    <div class="icon-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="policy-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="policy-title">지방자치단체별 다자녀 지원 카드 및 추가 혜택</h3>
+                        <p class="policy-desc">서울(다둥이 행복카드), 경기(아이플러스카드) 등 각 지자체별로 제공하는 다자녀 지원 카드를 통해 지역 내 공공·민간 시설 이용 시 다양한 할인 혜택을 받을 수 있습니다.</p>
+                        <a href="#" class="detail-btn">자세히 보기</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 하단 광고 -->
+        <div class="ad-container">
+            <p class="text-gray-400 mb-2">광고</p>
+            <div class="bg-gray-200 h-24 flex items-center justify-center">
+                <p class="text-gray-500">300x250 광고 영역</p>
+            </div>
+        </div>
+        
+        <!-- 관련 카테고리 추천 -->
+        <section class="related-section">
+            <h3 class="related-title">함께 보면 좋은 정보</h3>
+            
+            <div class="related-card">
+                <h4 class="font-bold mb-1">신혼부부·출산가구 주거 지원</h4>
+                <p class="text-sm text-gray-600">신혼부부 특별공급, 주택자금 대출 지원 등 주거 관련 혜택을 확인하세요.</p>
+                <a href="#" class="text-blue-500 text-sm mt-2 inline-block">바로가기 →</a>
+            </div>
+            
+            <div class="related-card">
+                <h4 class="font-bold mb-1">보육·교육 지원</h4>
+                <p class="text-sm text-gray-600">자녀 연령대별 보육료, 유아학비 지원 및 아이돌봄 서비스에 대해 알아보세요.</p>
+                <a href="#" class="text-blue-500 text-sm mt-2 inline-block">바로가기 →</a>
+            </div>
+            
+            <div class="related-card">
+                <h4 class="font-bold mb-1">일·가정 양립 지원</h4>
+                <p class="text-sm text-gray-600">육아휴직, 근로시간 단축 등 일과 가정의 양립을 돕는 제도를 확인하세요.</p>
+                <a href="#" class="text-blue-500 text-sm mt-2 inline-block">바로가기 →</a>
+            </div>
+        </section>
+        
+        <!-- 푸터 -->
+        <footer>
+            <p>© 2025 복지정책 정보 사이트</p>
+            <p class="mt-2">본 정보는 참고용으로 제공되며, 정확한 내용은 해당 기관에 문의하시기 바랍니다.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // 햄버거 메뉴 토글
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+        
+        // 사이드바 외부 클릭 시 닫기
+        document.addEventListener('click', function(event) {
+            const sidebar = document.querySelector('.sidebar');
+            const hamburger = document.querySelector('.hamburger-menu');
+            
+            if (!sidebar.contains(event.target) && !hamburger.contains(event.target) && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+        });
+        
+        // 메뉴 항목 클릭 이벤트
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // 현재 활성화된 메뉴 항목 비활성화
+                const activeItem = document.querySelector('.menu-item.active');
+                if (activeItem) {
+                    activeItem.classList.remove('active');
+                }
+                
+                // 클릭한 메뉴 항목 활성화
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

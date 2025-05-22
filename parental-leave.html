@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>육아휴직(급여) - 복지정책 정보 사이트</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        .section-title {
+            border-left: 4px solid #0275ff;
+            padding-left: 12px;
+        }
+        .nav-button {
+            transition: all 0.3s;
+        }
+        .nav-button:hover {
+            transform: translateY(-2px);
+        }
+        .sidebar {
+            transition: left 0.3s ease;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .faq-item.active .answer {
+            max-height: 500px;
+        }
+        .hamburger-menu span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            margin-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container min-h-screen flex flex-col">
+        <!-- Hamburger Menu Button -->
+        <div class="hamburger-menu fixed top-4 left-4 w-8 h-6 cursor-pointer z-50">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <!-- Sidebar / Navigation Menu -->
+        <div class="sidebar fixed top-0 left-[-280px] w-[280px] h-full bg-white shadow-lg z-40 p-6 overflow-y-auto">
+            <div class="pt-8 pb-4 border-b border-gray-200">
+                <h2 class="text-xl font-bold text-gray-800">복지정책 정보</h2>
+            </div>
+            <nav class="mt-4">
+                <ul>
+                    <li class="mb-2">
+                        <a href="#" class="block p-2 rounded hover:bg-blue-50 text-gray-700">홈</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="block p-2 rounded hover:bg-blue-50 text-gray-700">임신·출산 지원</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="block p-2 rounded hover:bg-blue-50 text-gray-700">영유아 양육 지원</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="block p-2 rounded hover:bg-blue-50 text-gray-700">보육·교육 지원</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="block p-2 rounded bg-blue-100 text-blue-700 font-medium">일·가정 양립 지원</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="block p-2 rounded hover:bg-blue-50 text-gray-700">신혼부부·출산가구 주거 지원</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="block p-2 rounded hover:bg-blue-50 text-gray-700">다자녀 가구 지원</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="block p-2 rounded hover:bg-blue-50 text-gray-700">기타 저소득층 및 한부모 가족 지원</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- Overlay -->
+        <div class="fixed inset-0 bg-black opacity-50 z-30 hidden overlay"></div>
+        
+        <!-- Main Content -->
+        <div class="flex-grow px-4 pt-16 pb-24">
+            <!-- Breadcrumb -->
+            <div class="text-sm text-gray-500 mb-6">
+                <a href="#" class="hover:text-blue-500">홈</a> &gt; 
+                <a href="#" class="hover:text-blue-500">일·가정 양립 지원</a> &gt; 
+                <span class="text-gray-700">육아휴직(급여)</span>
+            </div>
+            
+            <!-- Title Section -->
+            <div class="mb-6">
+                <h1 class="text-2xl font-bold text-gray-900 mb-2">육아휴직(급여)</h1>
+                <p class="text-gray-600">만 8세 이하 또는 초등학교 2학년 이하 자녀 양육을 위한 휴직 제도와 급여 지원</p>
+            </div>
+            
+            <!-- Ad Banner (Top) -->
+            <div class="bg-gray-100 rounded-lg p-4 text-center mb-8">
+                <p class="text-gray-400 text-sm mb-1">광고</p>
+                <div class="bg-gray-200 h-20 flex items-center justify-center rounded">
+                    <span class="text-gray-400">728x90 또는 320x100 광고 영역</span>
+                </div>
+            </div>
+            
+            <!-- Overview Section -->
+            <section class="mb-8">
+                <h2 class="section-title text-xl font-bold text-gray-800 mb-4">제도 개요</h2>
+                <div class="bg-blue-50 rounded-lg p-4 mb-4">
+                    <p>육아휴직은 <strong>만 8세 이하 또는 초등학교 2학년 이하</strong> 자녀를 양육하기 위해 근로자가 사용할 수 있는 법적 휴직 제도입니다. 육아휴직 기간 동안 고용보험에서 육아휴직 급여를 지급하여 소득 감소를 보전합니다.</p>
+                </div>
+                <p class="mb-2">이 제도는 남녀 근로자 모두 사용 가능하며, 부모가 순차적으로 또는 동시에 사용할 수도 있습니다.</p>
+                <p class="text-gray-600 italic">
+                    "육아휴직을 사용하면서 아이와 함께 보낸 시간은 그 무엇과도 바꿀 수 없는 소중한 경험이었습니다. 일과 육아 사이에서 균형을 찾을 수 있어 정말 감사했어요."
+                </p>
+            </section>
+            
+            <!-- Eligibility Section -->
+            <section class="mb-8">
+                <h2 class="section-title text-xl font-bold text-gray-800 mb-4">지원 대상</h2>
+                <ul class="list-disc pl-5 mb-4">
+                    <li class="mb-2">만 8세 이하 또는 초등학교 2학년 이하 자녀가 있는 근로자</li>
+                    <li class="mb-2">동일한 사업장에서 <strong>6개월 이상 근속</strong>한 근로자</li>
+                    <li class="mb-2">고용보험 가입자</li>
+                </ul>
+                <div class="bg-yellow-50 rounded-lg p-4 mb-4">
+                    <p class="text-yellow-800">
+                        <i class="fas fa-exclamation-circle mr-2"></i>
+                        같은 자녀에 대해 부모가 각각 1년씩, 총 2년까지 사용 가능합니다.
+                    </p>
+                </div>
+            </section>
+            
+            <!-- Duration Section -->
+            <section class="mb-8">
+                <h2 class="section-title text-xl font-bold text-gray-800 mb-4">휴직 기간</h2>
+                <div class="bg-white border border-gray-200 rounded-lg p-4 mb-4">
+                    <p class="mb-2"><strong>자녀 1명당 부모 각각 최대 1년</strong> (12개월)</p>
+                    <p class="mb-2">1회에 한해 분할 사용 가능 (2회로 나누어 사용)</p>
+                    <p>아이가 만 8세가 되거나 초등학교 2학년을 초과하기 전까지 사용 가능</p>
+                </div>
+            </section>
+            
+            <!-- Ad Banner (Middle) -->
+            <div class="bg-gray-100 rounded-lg p-4 text-center mb-8">
+                <p class="text-gray-400 text-sm mb-1">광고</p>
+                <div class="bg-gray-200 h-28 flex items-center justify-center rounded">
+                    <span class="text-gray-400">300x250 광고 영역</span>
+                </div>
+            </div>
+            
+            <!-- Benefits Section -->
+            <section class="mb-8">
+                <h2 class="section-title text-xl font-bold text-gray-800 mb-4">급여 지원</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200 rounded-lg mb-4">
+                        <thead>
+                            <tr>
+                                <th class="py-3 px-4 bg-gray-50 border-b text-left">기간</th>
+                                <th class="py-3 px-4 bg-gray-50 border-b text-left">급여 비율</th>
+                                <th class="py-3 px-4 bg-gray-50 border-b text-left">상한액/하한액</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-3 px-4 border-b">첫 3개월</td>
+                                <td class="py-3 px-4 border-b">통상임금의 <strong>80%</strong></td>
+                                <td class="py-3 px-4 border-b">상한 150만원<br>하한 70만원</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b">4~12개월</td>
+                                <td class="py-3 px-4 border-b">통상임금의 <strong>50%</strong></td>
+                                <td class="py-3 px-4 border-b">상한 120만원<br>하한 70만원</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="bg-blue-100 rounded-lg p-4 mb-4">
+                    <h3 class="font-bold text-blue-800 mb-2">3+3 부모육아휴직제</h3>
+                    <p>같은 자녀에 대해 부모가 모두 육아휴직을 사용하는 경우, <strong>두 번째 사용한 사람</strong>의 첫 3개월 급여는 <strong>통상임금의 100%</strong>(상한 250만원)로 상향 지급됩니다.</p>
+                </div>
+                
+                <div class="bg-green-50 rounded-lg p-4 mb-4">
+                    <h3 class="font-bold text-green-800 mb-2">복직 후 인센티브 (육아휴직 복귀 지원금)</h3>
+                    <p>육아휴직 후 같은 직장에 복귀하여 6개월 이상 계속 근무한 경우, 사업주에게 지원금이 지급되어 근로자의 고용 안정을 도모합니다.</p>
+                </div>
+            </section>
+            
+            <!-- Application Process Section -->
+            <section class="mb-8">
+                <h2 class="section-title text-xl font-bold text-gray-800 mb-4">신청 방법</h2>
+                <div class="bg-white rounded-lg border border-gray-200 mb-6">
+                    <div class="p-4 border-b">
+                        <h3 class="font-bold text-gray-800 mb-2">1. 육아휴직 신청 (회사)</h3>
+                        <p>휴직 시작 예정일 <strong>30일 전</strong>까지 사업주(회사)에 신청서 제출</p>
+                    </div>
+                    <div class="p-4 border-b">
+                        <h3 class="font-bold text-gray-800 mb-2">2. 육아휴직 급여 신청 (고용센터)</h3>
+                        <p>육아휴직 시작일부터 <strong>매월</strong> 신청</p>
+                        <p class="text-sm text-gray-600 mt-2">※ 육아휴직 종료일로부터 12개월 이내에 신청 가능</p>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800 mb-2">신청 경로</h3>
+                        <ul class="list-disc pl-5">
+                            <li>온라인: <a href="https://www.ei.go.kr" class="text-blue-600 hover:underline" target="_blank">고용보험 홈페이지</a> (www.ei.go.kr)</li>
+                            <li>오프라인: 주소지 관할 고용센터 방문</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Required Documents Section -->
+            <section class="mb-8">
+                <h2 class="section-title text-xl font-bold text-gray-800 mb-4">준비 서류</h2>
+                <div class="bg-gray-50 rounded-lg p-4 mb-4">
+                    <h3 class="font-bold mb-2">1. 육아휴직 신청 시 (회사 제출)</h3>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>육아휴직 신청서</li>
+                        <li>가족관계증명서 또는 주민등록등본</li>
+                    </ul>
+                    
+                    <h3 class="font-bold mb-2">2. 육아휴직 급여 신청 시 (고용센터 제출)</h3>
+                    <ul class="list-disc pl-5">
+                        <li>육아휴직 급여 신청서</li>
+                        <li>육아휴직 확인서 (사업주 발급)</li>
+                        <li>통상임금을 확인할 수 있는 자료 (임금대장 등)</li>
+                        <li>본인 명의 통장사본</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Important Notes Section -->
+            <section class="mb-8">
+                <h2 class="section-title text-xl font-bold text-gray-800 mb-4">유의사항</h2>
+                <ul class="mb-4">
+                    <li class="flex items-start mb-3">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                        <span>육아휴직 중 다른 사업장에 취업하거나 자영업을 할 경우 급여가 지급되지 않습니다.</span>
+                    </li>
+                    <li class="flex items-start mb-3">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                        <span>동일한 자녀에 대해 부모가 동시에 육아휴직을 사용할 수 있습니다.</span>
+                    </li>
+                    <li class="flex items-start mb-3">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                        <span>사업주는 근로자의 육아휴직 신청을 거부할 수 없으며, 위반 시 500만원 이하의 벌금이 부과됩니다.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                        <span>육아휴직 기간은 근속기간에 포함되며, 승진, 퇴직금 산정 등에서 불이익을 받지 않습니다.</span>
+                    </li>
+                </ul>
+                
+                <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded">
+                    <p class="text-red-700">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <strong>주의:</strong> 신청서 제출 후 사업주가 30일 이내에 신청을 승인하지 않는 경우, 
+                        지방노동위원회에 신고할 수 있습니다.
+                    </p>
+                </div>
+            </section>
+            
+            <!-- FAQ Section -->
+            <section class="mb-8">
+                <h2 class="section-title text-xl font-bold text-gray-800 mb-4">자주 묻는 질문</h2>
+                <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                    <div class="faq-item border-b border-gray-200">
+                        <button class="w-full text-left p-4 focus:outline-none flex justify-between items-center">
+                            <span class="font-medium">비정규직이나 중소기업 직원도 육아휴직을 사용할 수 있나요?</span>
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </button>
+                        <div class="answer px-4 pb-4">
+                            <p>네, 계약직 등 비정규직 근로자도 자격 요건(6개월 이상 근속, 고용보험 가입)을 갖추면 육아휴직을 사용할 수 있습니다. 다만, 계약 만료일이 육아휴직 중에 도래하는 경우, 계약 만료일까지만 육아휴직을 사용할 수 있습니다. 기업 규모와 관계없이 모든 사업장에 적용됩니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item border-b border-gray-200">
+                        <button class="w-full text-left p-4 focus:outline-none flex justify-between items-center">
+                            <span class="font-medium">육아휴직과 육아기 근로시간 단축을 같이 사용할 수 있나요?</span>
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </button>
+                        <div class="answer px-4 pb-4">
+                            <p>네, 가능합니다. 같은 자녀에 대해 육아휴직(최대 1년)과 육아기 근로시간 단축(최대 2년)을 합쳐 최대 3년까지 사용할 수 있습니다. 예를 들어, 육아휴직을 6개월 사용한 후 육아기 근로시간 단축을 2년 사용하는 등 다양한 조합이 가능합니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="w-full text-left p-4 focus:outline-none flex justify-between items-center">
+                            <span class="font-medium">육아휴직 중 4대 보험은 어떻게 되나요?</span>
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </button>
+                        <div class="answer px-4 pb-4">
+                            <p>육아휴직 기간 중에도 4대 보험은 유지됩니다. 국민연금과 건강보험의 경우, 육아휴직 기간 동안 보험료가 면제되거나 경감됩니다. 고용보험과 산재보험은 회사에서 계속 납부합니다. 따라서 육아휴직 중에도 의료보험 혜택을 받을 수 있고, 국민연금 가입기간에서 불이익이 없습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Ad Banner (Bottom) -->
+            <div class="bg-gray-100 rounded-lg p-4 text-center mb-8">
+                <p class="text-gray-400 text-sm mb-1">광고</p>
+                <div class="bg-gray-200 h-28 flex items-center justify-center rounded">
+                    <span class="text-gray-400">300x250 광고 영역</span>
+                </div>
+            </div>
+            
+            <!-- Navigation Buttons -->
+            <div class="flex flex-wrap justify-between mt-10">
+                <a href="#" class="nav-button bg-white border border-blue-500 text-blue-500 px-4 py-2 rounded-lg mb-3 flex items-center">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    배우자 출산휴가
+                </a>
+                <a href="#" class="nav-button bg-white border border-blue-500 text-blue-500 px-4 py-2 rounded-lg mb-3">
+                    카테고리 목록으로
+                </a>
+                <a href="#" class="nav-button bg-white border border-blue-500 text-blue-500 px-4 py-2 rounded-lg mb-3 flex items-center">
+                    육아기 근로시간 단축
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <!-- Related Policies -->
+            <div class="mt-8">
+                <h2 class="section-title text-xl font-bold text-gray-800 mb-4">관련 정책</h2>
+                <div class="grid grid-cols-1 gap-4">
+                    <a href="#" class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+                        <h3 class="font-bold text-blue-700 mb-1">육아기 근로시간 단축</h3>
+                        <p class="text-gray-600 text-sm">일과 육아를 병행할 수 있도록 근로시간을 줄여서 일하는 제도</p>
+                    </a>
+                    <a href="#" class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+                        <h3 class="font-bold text-blue-700 mb-1">가족돌봄휴가/휴직</h3>
+                        <p class="text-gray-600 text-sm">가족 구성원의 돌봄이 필요할 때 사용할 수 있는 휴가·휴직 제도</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="bg-gray-50 py-6 px-4 border-t border-gray-200">
+            <div class="mb-4 text-center">
+                <p class="text-sm text-gray-500 mb-2">
+                    본 정보는 2025년 5월 기준이며, 정책은 변경될 수 있습니다.<br>
+                    최신 정보는 고용노동부, 고용보험 홈페이지에서 확인하세요.
+                </p>
+                <a href="https://www.ei.go.kr" target="_blank" class="text-blue-500 hover:underline text-sm">고용보험 홈페이지 바로가기</a>
+            </div>
+            <div class="text-center text-xs text-gray-400">
+                <p>© 2025 복지정책 정보 사이트. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        // Hamburger menu toggle
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.overlay');
+        
+        hamburgerMenu.addEventListener('click', function() {
+            sidebar.classList.toggle('active');
+            if (sidebar.classList.contains('active')) {
+                overlay.classList.remove('hidden');
+            } else {
+                overlay.classList.add('hidden');
+            }
+        });
+        
+        overlay.addEventListener('click', function() {
+            sidebar.classList.remove('active');
+            overlay.classList.add('hidden');
+        });
+        
+        // FAQ accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const button = item.querySelector('button');
+            button.addEventListener('click', () => {
+                item.classList.toggle('active');
+                const icon = button.querySelector('i');
+                if (item.classList.contains('active')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
