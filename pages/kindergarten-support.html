@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유치원 유아학비 지원 - 복지정책 정보 사이트</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f5f7fa;
+        }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #fff;
+            min-height: 100vh;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        .policy-section {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .section-title {
+            color: #0275ff;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+        }
+        .section-title i {
+            margin-right: 0.5rem;
+        }
+        .ad-container {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            text-align: center;
+            margin: 1rem 0;
+            border-radius: 4px;
+            border: 1px dashed #ddd;
+        }
+        .nav-button {
+            display: inline-block;
+            background-color: #0275ff;
+            color: white;
+            padding: 0.6rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #0056b3;
+        }
+        .back-button {
+            background-color: #6c757d;
+        }
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+        .highlight {
+            background-color: #e6f3ff;
+            padding: 0.2rem 0.4rem;
+            border-radius: 2px;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+        .faq-question {
+            font-weight: 500;
+            color: #0275ff;
+            margin-bottom: 0.5rem;
+        }
+        .category-nav {
+            display: flex;
+            overflow-x: auto;
+            padding: 0.75rem 0;
+            margin-bottom: 1rem;
+            white-space: nowrap;
+        }
+        .category-nav a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            color: #333;
+            text-decoration: none;
+            border-radius: 20px;
+            margin-right: 0.5rem;
+            background-color: #f1f5f9;
+            font-size: 0.9rem;
+        }
+        .category-nav a.active {
+            background-color: #0275ff;
+            color: white;
+        }
+        .hamburger-menu {
+            display: block;
+            cursor: pointer;
+            padding: 1rem;
+        }
+        .hamburger-menu span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin-bottom: 5px;
+            border-radius: 3px;
+        }
+        .user-review {
+            border-left: 3px solid #0275ff;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <header class="bg-white p-4 shadow-sm flex justify-between items-center">
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <h1 class="text-xl font-bold">복지정책 정보</h1>
+            <div class="w-10"></div>
+        </header>
+
+        <!-- 경로 표시 -->
+        <div class="text-sm text-gray-500 px-4 mt-3">
+            <a href="/main" class="hover:text-blue-500">홈</a> &gt; 
+            <a href="/category/childcare-education" class="hover:text-blue-500">보육·교육 지원</a> &gt; 
+            <span class="text-gray-700">유치원 유아학비 지원</span>
+        </div>
+
+        <!-- 카테고리 내비게이션 -->
+        <div class="category-nav px-4">
+            <a href="/category/pregnancy-childbirth">임신·출산 지원</a>
+            <a href="/category/infant-care">영유아 양육 지원</a>
+            <a href="/category/childcare-education" class="active">보육·교육 지원</a>
+            <a href="/category/work-family-balance">일·가정 양립 지원</a>
+            <a href="/category/housing-support">주거 지원</a>
+        </div>
+
+        <!-- 메인 콘텐츠 -->
+        <main class="p-4">
+            <h2 class="text-2xl font-bold text-center mb-4">유치원 유아학비 지원</h2>
+            <p class="text-center text-gray-600 mb-6">유치원에 다니는 만 3~5세 유아의 학비를 지원하는 누리과정 제도</p>
+
+            <!-- 광고 영역 1 -->
+            <div class="ad-container mb-6">
+                <div class="text-gray-500">광고 영역 (728x90 또는 320x100)</div>
+            </div>
+
+            <!-- 제도 개요 섹션 -->
+            <section class="policy-section">
+                <h3 class="section-title"><i class="fas fa-info-circle"></i> 제도 개요</h3>
+                <p>유치원 유아학비 지원은 <strong>누리과정</strong>이라는 이름으로 시행되는 제도로, 모든 만 3~5세 유아가 유치원에서 양질의 교육을 받을 수 있도록 학비를 지원하는 정책입니다.</p>
+                <p class="mt-2">유아 단계에서의 교육 격차를 줄이고 모든 아이에게 공평한 교육 기회를 제공하기 위해, 가정의 소득이나 재산 수준에 관계없이 모든 유아에게 동일한 지원이 이루어집니다.</p>
+                <p class="mt-2">이 제도는 유아들의 발달 수준에 적합한 교육과정인 '누리과정'을 운영하는 유치원에 다니는 아이들에게 적용됩니다.</p>
+            </section>
+
+            <!-- 지원 대상 섹션 -->
+            <section class="policy-section">
+                <h3 class="section-title"><i class="fas fa-users"></i> 지원 대상</h3>
+                <ul class="list-disc pl-5">
+                    <li>유치원(국·공립 및 사립)에 다니는 <span class="highlight">만 3~5세 유아</span></li>
+                    <li>소득이나 재산 수준에 관계없이 <span class="highlight">모든 계층</span>에 지원</li>
+                    <li>대한민국 국적을 보유한 아동(다문화가족 자녀 포함)</li>
+                </ul>
+                <p class="mt-2 text-sm text-gray-600">※ 만 3~5세: 매년 1월 1일 기준으로 만 3~5세에 해당하는 유아 (2025년 기준: 2020년 1월 1일 ~ 2022년 12월 31일 출생아)</p>
+            </section>
+
+            <!-- 지원 내용 섹션 -->
+            <section class="policy-section">
+                <h3 class="section-title"><i class="fas fa-hand-holding-usd"></i> 지원 내용</h3>
+                <p class="mb-2">2025년 기준 지원 금액:</p>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border">
+                        <thead>
+                            <tr>
+                                <th class="py-2 px-4 border">구분</th>
+                                <th class="py-2 px-4 border">국·공립 유치원</th>
+                                <th class="py-2 px-4 border">사립 유치원</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border">유아학비 기본 지원</td>
+                                <td class="py-2 px-4 border">월 10만원</td>
+                                <td class="py-2 px-4 border">월 29만원</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border">방과후 과정비</td>
+                                <td class="py-2 px-4 border">월 5만원</td>
+                                <td class="py-2 px-4 border">월 7만원</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="mt-4">지원금은 유치원에 직접 지급되며, <span class="highlight">학부모는 추가 부담금만 납부</span>하면 됩니다.</p>
+                <p class="mt-2">방과후 과정비는 유치원의 <span class="highlight">교육과정 이후에 이루어지는 방과후 과정</span>을 이용하는 유아에게 추가로 지원됩니다.</p>
+            </section>
+
+            <!-- 광고 영역 2 -->
+            <div class="ad-container">
+                <div class="text-gray-500">광고 영역 (300x250)</div>
+            </div>
+
+            <!-- 지원 방식 섹션 -->
+            <section class="policy-section">
+                <h3 class="section-title"><i class="fas fa-credit-card"></i> 지원 방식</h3>
+                <ul class="list-disc pl-5">
+                    <li><span class="highlight">아이행복카드</span>로 결제 (KB국민카드, 우리카드, 하나카드, 신한카드 등에서 발급)</li>
+                    <li>카드 결제 후 <span class="highlight">정부 지원금은 유치원으로 직접 입금</span>됨</li>
+                    <li>유치원 원비가 지원금보다 많을 경우 차액만 학부모가 부담</li>
+                </ul>
+                <p class="mt-2">유아학비 지원금은 유치원비 결제용으로만 사용 가능하며, <span class="highlight">현금화되지 않습니다</span>.</p>
+            </section>
+
+            <!-- 신청 방법 섹션 -->
+            <section class="policy-section">
+                <h3 class="section-title"><i class="fas fa-file-alt"></i> 신청 방법</h3>
+                <div class="bg-gray-50 p-3 rounded-lg">
+                    <h4 class="font-medium mb-2">1. 방문 신청</h4>
+                    <p>읍·면·동 주민센터를 방문하여 신청</p>
+                </div>
+                <div class="bg-gray-50 p-3 rounded-lg mt-3">
+                    <h4 class="font-medium mb-2">2. 온라인 신청</h4>
+                    <p>복지로 온라인 신청 (<a href="https://www.bokjiro.go.kr" class="text-blue-500 underline">www.bokjiro.go.kr</a>)</p>
+                </div>
+                <div class="bg-gray-50 p-3 rounded-lg mt-3">
+                    <h4 class="font-medium mb-2">3. 모바일 신청</h4>
+                    <p>복지로 앱을 통한 신청</p>
+                </div>
+            </section>
+
+            <!-- 준비 서류 섹션 -->
+            <section class="policy-section">
+                <h3 class="section-title"><i class="fas fa-clipboard-list"></i> 준비 서류</h3>
+                <ul class="list-disc pl-5">
+                    <li>신청자 신분증 (주민등록증, 운전면허증 등)</li>
+                    <li>가족관계증명서 (필요시)</li>
+                    <li>아이행복카드 발급 신청서 (카드사마다 상이)</li>
+                    <li>유치원 재원 확인서 (필요시)</li>
+                </ul>
+                <p class="mt-2 text-sm text-gray-600">※ 신청인의 주민등록 주소지와 거주지가 다른 경우, 추가 서류가 필요할 수 있습니다.</p>
+            </section>
+
+            <!-- 유의사항 섹션 -->
+            <section class="policy-section">
+                <h3 class="section-title"><i class="fas fa-exclamation-triangle"></i> 유의사항</h3>
+                <ul class="list-disc pl-5">
+                    <li><span class="text-red-500 font-medium">어린이집 보육료 지원과 중복 수혜 불가</span> - 유치원과 어린이집 중 한 곳만 선택해야 함</li>
+                    <li>유아학비 지원금은 해당 월에 유아가 <span class="highlight">유치원을 이용한 경우에만 지원</span></li>
+                    <li>입소 당월에는 신청일 기준으로 일할 계산하여 지원</li>
+                    <li>대상 아동이 <span class="highlight">다른 시설로 이동 시 반드시 유치원에 알려야 함</span></li>
+                    <li>유아학비 지원 신청 후 2개월 내에 실제 유치원을 다니지 않으면 자격이 중지될 수 있음</li>
+                </ul>
+            </section>
+
+            <!-- 광고 영역 3 -->
+            <div class="ad-container">
+                <div class="text-gray-500">광고 영역 (300x250)</div>
+            </div>
+
+            <!-- 자주 묻는 질문 섹션 -->
+            <section class="policy-section">
+                <h3 class="section-title"><i class="fas fa-question-circle"></i> 자주 묻는 질문</h3>
+                
+                <div class="faq-item">
+                    <p class="faq-question">Q: 아이행복카드는 어디서 발급받나요?</p>
+                    <p>A: 아이행복카드는 KB국민카드, 우리카드, 하나카드, 신한카드 등 카드사 영업점을 방문하거나 온라인으로 신청하여 발급받을 수 있습니다. 각 카드사 홈페이지나 고객센터에서 발급 방법을 확인하세요.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <p class="faq-question">Q: 유치원 학비를 정부 지원금보다 더 많이 내야 한다면 어떻게 하나요?</p>
+                    <p>A: 정부 지원금을 초과하는 금액은 학부모가 추가로 부담해야 합니다. 아이행복카드로 정부 지원금이 결제되고, 차액은 유치원에 직접 납부하게 됩니다.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <p class="faq-question">Q: 방과후 과정비는 어떤 경우에 지원받을 수 있나요?</p>
+                    <p>A: 유치원의 정규 교육과정 이후에 이루어지는 방과후 과정에 참여하는 유아에게 지원됩니다. 일반적으로 하루 8시간 이상 유치원에 머무르는 경우에 해당합니다. 구체적인 기준은 각 유치원에 문의하세요.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <p class="faq-question">Q: 어린이집에서 유치원으로 옮길 경우 어떻게 해야 하나요?</p>
+                    <p>A: 어린이집을 그만두고 유치원으로 옮길 경우, 어린이집 퇴소 사실을 알리고 유치원 유아학비 지원을 새로 신청해야 합니다. 중복 지원되지 않도록 반드시 어린이집 퇴소 처리가 선행되어야 합니다.</p>
+                </div>
+            </section>
+
+            <!-- 실제 사용자 경험 -->
+            <section class="policy-section">
+                <h3 class="section-title"><i class="fas fa-comment"></i> 학부모 경험담</h3>
+                <div class="user-review">
+                    "사립유치원 비용이 부담되어 고민했는데, 유아학비 지원으로 많은 도움을 받았어요. 월 29만원이 지원되니 부담이 크게 줄었습니다. 방과후 과정비도 따로 지원되어 맞벌이 가정에게는 정말 필요한 제도예요. 신청도 복지로 앱으로 간편하게 했습니다."
+                </div>
+            </section>
+
+            <!-- 네비게이션 버튼 -->
+            <div class="flex flex-wrap mt-8 mb-4">
+                <a href="/category/daycare-support" class="nav-button back-button">
+                    <i class="fas fa-arrow-left mr-1"></i> 이전: 어린이집 보육료 지원
+                </a>
+                <a href="/category/childcare-service" class="nav-button">
+                    다음: 아이돌봄 서비스 지원 <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+            <div class="mb-8">
+                <a href="/category/childcare-education" class="nav-button back-button w-full text-center block">
+                    <i class="fas fa-list mr-1"></i> 보육·교육 지원 목록으로 돌아가기
+                </a>
+            </div>
+
+            <!-- 광고 영역 4 -->
+            <div class="ad-container mb-8">
+                <div class="text-gray-500">광고 영역 (728x90 또는 320x100)</div>
+            </div>
+        </main>
+
+        <!-- 푸터 -->
+        <footer class="bg-gray-100 p-4 text-center text-gray-600 text-sm">
+            <p>© 2025 복지정책 정보 사이트. 모든 정보는 참고용으로만 활용하세요.</p>
+            <p class="mt-1">실제 지원 내용은 정부 기관의 최신 정보를 확인하세요.</p>
+            <div class="mt-2">
+                <a href="#" class="text-gray-600 hover:text-blue-500 mx-2">이용약관</a>
+                <a href="#" class="text-gray-600 hover:text-blue-500 mx-2">개인정보처리방침</a>
+                <a href="#" class="text-gray-600 hover:text-blue-500 mx-2">문의하기</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 스크립트 -->
+    <script>
+        // 햄버거 메뉴 토글 (실제 구현은 추가 코드 필요)
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            alert('메뉴가 열립니다. 실제 사이트에서는 사이드바가 표시됩니다.');
+        });
+    </script>
+</body>
+</html>

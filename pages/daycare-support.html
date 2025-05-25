@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>어린이집 보육료 지원 - 복지정책 정보 사이트</title>
+    <meta name="description" content="영유아 어린이집 보육료 지원 정책에 대한 상세 정보. 지원 대상, 지원 금액, 신청 방법 등 자세히 안내합니다.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        .policy-card {
+            border-radius: 8px;
+            border-left: 4px solid #0275ff;
+        }
+        .btn-primary {
+            background-color: #0275ff;
+        }
+        .btn-primary:hover {
+            background-color: #0056cc;
+        }
+        .btn-outline {
+            border: 1px solid #0275ff;
+            color: #0275ff;
+        }
+        .btn-outline:hover {
+            background-color: #0275ff;
+            color: white;
+        }
+        .ad-box {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            color: #666;
+            text-align: center;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100%;
+            background-color: white;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            overflow-y: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .hamburger-menu {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            width: 30px;
+            height: 22px;
+            z-index: 1001;
+            cursor: pointer;
+        }
+        .hamburger-menu span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            margin-bottom: 5px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: a;
+            background-color: rgba(0,0,0,0.4);
+            z-index: 999;
+            display: none;
+        }
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- 햄버거 메뉴 버튼 -->
+    <div class="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- 사이드바 -->
+    <div class="sidebar">
+        <div class="p-4 border-b">
+            <h2 class="text-xl font-bold">복지정책 정보</h2>
+            <p class="text-sm text-gray-600 mt-1">2025년 최신 정보</p>
+        </div>
+        <nav class="p-4">
+            <ul>
+                <li class="mb-3">
+                    <a href="index.html" class="block p-2 hover:bg-blue-50 rounded">
+                        <i class="bi bi-house-door mr-2"></i> 홈
+                    </a>
+                </li>
+                <li class="mb-3">
+                    <a href="/category/pregnancy-childbirth" class="block p-2 hover:bg-blue-50 rounded">
+                        <i class="bi bi-person-hearts mr-2"></i> 임신·출산 지원
+                    </a>
+                </li>
+                <li class="mb-3">
+                    <a href="/category/infant-care" class="block p-2 hover:bg-blue-50 rounded">
+                        <i class="bi bi-gender-female mr-2"></i> 영유아 양육 지원
+                    </a>
+                </li>
+                <li class="mb-3">
+                    <a href="/category/childcare-education" class="block p-2 hover:bg-blue-50 rounded font-bold text-blue-600">
+                        <i class="bi bi-book mr-2"></i> 보육·교육 지원
+                    </a>
+                </li>
+                <li class="mb-3">
+                    <a href="/category/work-family-balance" class="block p-2 hover:bg-blue-50 rounded">
+                        <i class="bi bi-briefcase mr-2"></i> 일·가정 양립 지원
+                    </a>
+                </li>
+                <li class="mb-3">
+                    <a href="/category/housing-support" class="block p-2 hover:bg-blue-50 rounded">
+                        <i class="bi bi-house-gear mr-2"></i> 신혼부부·출산가구 주거 지원
+                    </a>
+                </li>
+                <li class="mb-3">
+                    <a href="/category/multi-child-family" class="block p-2 hover:bg-blue-50 rounded">
+                        <i class="bi bi-people mr-2"></i> 다자녀 가구 지원
+                    </a>
+                </li>
+                <li class="mb-3">
+                    <a href="/category/low-income-single-parent" class="block p-2 hover:bg-blue-50 rounded">
+                        <i class="bi bi-heart-fill mr-2"></i> 저소득층 및 한부모 가족 지원
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- 오버레이 -->
+    <div class="overlay"></div>
+
+    <div class="container min-h-screen">
+        <!-- 상단 내비게이션 -->
+        <div class="sticky top-0 bg-white border-b z-10">
+            <div class="flex justify-center items-center h-14 relative">
+                <h1 class="text-lg font-bold">어린이집 보육료 지원</h1>
+                <a href="/category/childcare-education" class="absolute left-4 flex items-center text-sm text-gray-600">
+                    <i class="bi bi-arrow-left mr-1"></i> 목록
+                </a>
+            </div>
+        </div>
+
+        <!-- 상단 광고 영역 -->
+        <div class="ad-box p-4 mb-4 mx-2 mt-4">
+            <p>광고 영역 (728x90)</p>
+        </div>
+
+        <!-- 본문 컨텐츠 -->
+        <div class="px-4 mb-10">
+            <!-- 정책 개요 섹션 -->
+            <section class="mb-8">
+                <h2 class="text-xl font-bold mb-4 text-blue-600">
+                    <i class="bi bi-info-circle-fill mr-2"></i> 제도 개요
+                </h2>
+                <div class="policy-card p-4 bg-blue-50">
+                    <p class="mb-2">영유아(만 0세~만 5세)가 어린이집을 이용할 경우, 정부에서 보육료의 전부 또는 일부를 지원하여 부모의 양육 부담을 줄이고 아이들에게는 질 높은 보육 서비스를 제공하기 위한 제도입니다.</p>
+                    <p class="text-sm text-gray-600">일반적으로 바우처(이용권) 형태로 지원되며, 부모가 직접 돈을 내는 것이 아니라 정부(지자체)가 어린이집으로 보육료를 직접 지원하는 방식입니다.</p>
+                </div>
+            </section>
+
+            <!-- 지원 대상 섹션 -->
+            <section class="mb-8">
+                <h2 class="text-xl font-bold mb-4 text-blue-600">
+                    <i class="bi bi-person-check-fill mr-2"></i> 지원 대상
+                </h2>
+                <div class="bg-white p-4 rounded-lg shadow-sm border mb-4">
+                    <h3 class="font-bold mb-2">만 0세~만 5세 영유아</h3>
+                    <ul class="list-disc pl-5 mb-3">
+                        <li>어린이집을 이용하는 영유아라면 소득 수준과 관계없이 지원</li>
+                        <li>대한민국 국적을 보유한 영유아 (외국 국적 아동은 예외 조건 있음)</li>
+                    </ul>
+                    <p class="text-sm bg-yellow-50 p-2 rounded-md">※ 단, 아동의 보호자가 유흥업소 등 사회적으로 허용되지 않는 업종 종사자이거나, 보육 목적으로 인정되지 않는 경우에는 지원이 제한될 수 있습니다.</p>
+                </div>
+            </section>
+
+            <!-- 중간 광고 영역 -->
+            <div class="ad-box p-4 mb-8 mx-2">
+                <p>광고 영역 (300x250)</p>
+            </div>
+
+            <!-- 지원 내용 섹션 -->
+            <section class="mb-8">
+                <h2 class="text-xl font-bold mb-4 text-blue-600">
+                    <i class="bi bi-cash-coin mr-2"></i> 지원 내용
+                </h2>
+                <div class="bg-white rounded-lg shadow-sm border mb-4">
+                    <div class="px-4 py-3 bg-gray-50 rounded-t-lg">
+                        <h3 class="font-bold">2025년 기준 보육료 지원 금액</h3>
+                    </div>
+                    <div class="p-4">
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full border">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="border p-2">연령</th>
+                                        <th class="border p-2">지원 금액</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border p-2">만 0세</td>
+                                        <td class="border p-2">월 50만원</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border p-2">만 1세</td>
+                                        <td class="border p-2">월 35만원</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border p-2">만 2세</td>
+                                        <td class="border p-2">월 30만원</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border p-2">만 3~5세</td>
+                                        <td class="border p-2">월 29만원</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-3">
+                            <i class="bi bi-exclamation-circle"></i> 위 금액은 2025년 기준으로, 정부 정책에 따라 매년 변동될 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-sm border mb-4">
+                    <h3 class="font-bold mb-2">지원 방식</h3>
+                    <ul class="list-disc pl-5">
+                        <li class="mb-2"><strong>아이행복카드</strong>를 발급받아 어린이집에 결제하면, 정부에서 어린이집으로 해당 금액을 직접 지급합니다.</li>
+                        <li class="mb-2">부모는 실질적으로 결제 행위만 하고, 실제 비용 부담은 없습니다.</li>
+                        <li class="mb-2">단, 특별활동비, 현장학습비 등 추가비용은 별도로 부모가 부담할 수 있습니다.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 신청 방법 섹션 -->
+            <section class="mb-8">
+                <h2 class="text-xl font-bold mb-4 text-blue-600">
+                    <i class="bi bi-pencil-square mr-2"></i> 신청 방법
+                </h2>
+                <div class="bg-white p-4 rounded-lg shadow-sm border mb-4">
+                    <h3 class="font-bold mb-3">신청 절차</h3>
+                    <ol class="list-decimal pl-5 mb-4">
+                        <li class="mb-3">
+                            <strong>아이행복카드 발급</strong>
+                            <p class="text-sm text-gray-600">KB국민카드, 신한카드, 롯데카드, 우리카드, NH농협카드, 하나카드 중 택 1</p>
+                        </li>
+                        <li class="mb-3">
+                            <strong>보육료 지원 신청</strong>
+                            <p class="text-sm text-gray-600">거주지 읍·면·동 주민센터 방문 또는 복지로 온라인 신청(www.bokjiro.go.kr)</p>
+                        </li>
+                        <li class="mb-3">
+                            <strong>어린이집 등록</strong>
+                            <p class="text-sm text-gray-600">아이행복카드로 어린이집에 결제 시 보육료 지원</p>
+                        </li>
+                    </ol>
+
+                    <h3 class="font-bold mb-2">준비 서류</h3>
+                    <ul class="list-disc pl-5">
+                        <li>사회서비스 이용권(바우처) 신청서</li>
+                        <li>신분증(주민등록증, 운전면허증 등)</li>
+                        <li>영유아 가족관계증명서(행정정보 공동이용 동의 시 생략 가능)</li>
+                        <li>어린이집 입소 확인서(필요시)</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <h3 class="font-bold mb-2 flex items-center">
+                        <i class="bi bi-lightbulb-fill text-yellow-500 mr-2"></i> 신청 시 알아두면 좋은 팁
+                    </h3>
+                    <ul class="list-disc pl-5">
+                        <li class="mb-2">복지로 홈페이지에서 온라인 신청 시 공인인증서(또는 디지털원패스)가 필요합니다.</li>
+                        <li class="mb-2">출생 후 60일 이내에 보육료 신청을 완료하면 출생일로 소급해서 지원받을 수 있습니다.</li>
+                        <li>어린이집에 입소 대기 신청은 임신 중에도 가능합니다. 대기 순번을 빨리 확보하는 것이 중요합니다.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 유의사항 섹션 -->
+            <section class="mb-8">
+                <h2 class="text-xl font-bold mb-4 text-blue-600">
+                    <i class="bi bi-exclamation-triangle-fill mr-2"></i> 유의사항
+                </h2>
+                <div class="policy-card p-4 bg-red-50">
+                    <ul class="list-disc pl-5">
+                        <li class="mb-2"><strong>어린이집 이용과 가정양육수당 중복 수령 불가</strong> - 둘 중 하나만 선택해야 합니다.</li>
+                        <li class="mb-2"><strong>입소 대기</strong> - 인기 있는 어린이집은 대기 기간이 길 수 있으니 미리 준비하세요.</li>
+                        <li class="mb-2"><strong>자격 요건 변동 시 신고</strong> - 이사, 가구원 수 변동 등 변경사항이 있을 경우 반드시 신고해야 합니다.</li>
+                        <li><strong>종일반 자격</strong> - 부모가 모두 일정 시간 이상 일하는 등의 조건을 충족해야 종일반 이용이 가능합니다.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 경험담 섹션 -->
+            <section class="mb-8">
+                <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                    <h3 class="font-bold mb-2 text-blue-800">
+                        <i class="bi bi-chat-quote-fill mr-1"></i> 경험담
+                    </h3>
+                    <p class="italic text-gray-700">
+                        "첫째 아이가 만 1세가 되어 어린이집에 보내기 시작했는데, 보육료 지원 덕분에 경제적 부담 없이 아이를 맡길 수 있어 정말 좋았어요. 아이행복카드만 발급받으면 나머지는 어린이집과 정부가 알아서 처리해주니 편리했습니다. 단, 특별활동비는 별도로 내야 했지만 그 외 기본 보육료는 전액 지원되어 큰 도움이 되었습니다."
+                    </p>
+                </div>
+            </section>
+
+            <!-- 자주 묻는 질문 섹션 -->
+            <section class="mb-8">
+                <h2 class="text-xl font-bold mb-4 text-blue-600">
+                    <i class="bi bi-question-circle-fill mr-2"></i> 자주 묻는 질문
+                </h2>
+                
+                <div class="mb-4">
+                    <div class="bg-white rounded-lg shadow-sm border">
+                        <button class="flex justify-between items-center w-full p-4 text-left font-bold">
+                            <span>Q. 아이행복카드는 어디서 발급받나요?</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="p-4 border-t">
+                            <p>A. KB국민, 신한, 롯데, 우리, NH농협, 하나카드 중 원하는 카드사를 선택하여 발급받을 수 있습니다. 카드사 홈페이지, 영업점 방문, 또는 카드사 고객센터를 통해 신청 가능합니다.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <div class="bg-white rounded-lg shadow-sm border">
+                        <button class="flex justify-between items-center w-full p-4 text-left font-bold">
+                            <span>Q. 보육료 지원과 가정양육수당을 동시에 받을 수 있나요?</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="p-4 border-t">
+                            <p>A. 아니오, 동시에 받을 수 없습니다. 어린이집을 이용하면 보육료 지원을, 가정에서 직접 양육하면 가정양육수당을 받는 방식으로 둘 중 하나를 선택해야 합니다. 한 달에 한 번 변경 가능하며, 15일 이전에 신청해야 다음 달부터 변경됩니다.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <div class="bg-white rounded-lg shadow-sm border">
+                        <button class="flex justify-between items-center w-full p-4 text-left font-bold">
+                            <span>Q. 어린이집 추가 비용은 따로 내야 하나요?</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="p-4 border-t">
+                            <p>A. 네, 기본 보육료 외에 특별활동비, 현장학습비, 행사비, 차량운행비 등은 부모가 별도로 부담해야 할 수 있습니다. 이러한 비용은 어린이집마다 다르며, 입소 전에 어린이집에 문의하여 확인하는 것이 좋습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <div class="bg-white rounded-lg shadow-sm border">
+                        <button class="flex justify-between items-center w-full p-4 text-left font-bold">
+                            <span>Q. 지원 연령은 언제 기준으로 계산하나요?</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="p-4 border-t">
+                            <p>A. 보육료 지원의 연령 기준은 매년 1월 1일 기준으로 계산합니다. 예를 들어, 2025년 1월 1일에 만 1세라면 2025년 12월 31일까지는 계속 만 1세 보육료를 지원받게 됩니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 하단 광고 영역 -->
+            <div class="ad-box p-4 mb-8 mx-2">
+                <p>광고 영역 (320x100)</p>
+            </div>
+
+            <!-- 이전/다음 정책으로 이동 버튼 -->
+            <div class="flex justify-between mb-8">
+                <a href="#" class="btn-outline py-2 px-4 rounded-md flex items-center">
+                    <i class="bi bi-arrow-left mr-2"></i>이전 정책
+                </a>
+                <a href="#" class="btn-primary text-white py-2 px-4 rounded-md flex items-center">
+                    다음 정책<i class="bi bi-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <!-- 관련 정책 추천 -->
+            <div class="mb-8">
+                <h3 class="text-lg font-bold mb-3">관련 정책 살펴보기</h3>
+                <div class="grid grid-cols-1 gap-3">
+                    <a href="#" class="bg-white p-3 rounded-md shadow-sm border hover:bg-blue-50 transition flex items-center">
+                        <i class="bi bi-file-earmark-text mr-2 text-blue-500"></i>
+                        <span>유치원 유아학비 지원</span>
+                    </a>
+                    <a href="#" class="bg-white p-3 rounded-md shadow-sm border hover:bg-blue-50 transition flex items-center">
+                        <i class="bi bi-file-earmark-text mr-2 text-blue-500"></i>
+                        <span>가정양육수당(참고)</span>
+                    </a>
+                    <a href="#" class="bg-white p-3 rounded-md shadow-sm border hover:bg-blue-50 transition flex items-center">
+                        <i class="bi bi-file-earmark-text mr-2 text-blue-500"></i>
+                        <span>아이돌봄 서비스 지원</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 푸터 -->
+        <footer class="px-4 py-6 bg-gray-100 text-center text-sm text-gray-600">
+            <p class="mb-2">© 2025 복지정책 정보 사이트</p>
+            <p>본 정보는 참고용으로 제공되며, 정확한 정보는 공식 정부 사이트에서 확인하세요.</p>
+            <div class="mt-3">
+                <a href="#" class="text-blue-600 hover:underline mr-3">개인정보처리방침</a>
+                <a href="#" class="text-blue-600 hover:underline">사이트맵</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // 햄버거 메뉴 토글
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+            document.querySelector('.overlay').classList.toggle('active');
+        });
+
+        // 오버레이 클릭 시 사이드바 닫기
+        document.querySelector('.overlay').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.remove('active');
+            document.querySelector('.overlay').classList.remove('active');
+        });
+
+        // FAQ 아코디언
+        const faqButtons = document.querySelectorAll('.bg-white.rounded-lg.shadow-sm.border button');
+        faqButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                if (content.style.display === 'none' || content.style.display === '') {
+                    content.style.display = 'block';
+                    icon.classList.remove('bi-chevron-down');
+                    icon.classList.add('bi-chevron-up');
+                } else {
+                    content.style.display = 'none';
+                    icon.classList.remove('bi-chevron-up');
+                    icon.classList.add('bi-chevron-down');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

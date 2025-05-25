@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임신·출산 지원 - 복지정책 정보 사이트</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #fff;
+            min-height: 100vh;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        .hamburger-menu {
+            display: block;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            width: 30px;
+            height: 22px;
+            z-index: 1001;
+            cursor: pointer;
+        }
+        .hamburger-menu span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            margin-bottom: 5px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100%;
+            background-color: #fff;
+            z-index: 1000;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            overflow-y: auto;
+            padding-top: 60px;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .menu-item {
+            display: block;
+            padding: 15px 20px;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            transition: all 0.2s ease;
+        }
+        .menu-item:hover, .menu-item.active {
+            background-color: #0275ff;
+            color: #fff;
+        }
+        .breadcrumb {
+            padding: 10px 15px;
+            background-color: #f5f7fa;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .breadcrumb a {
+            color: #0275ff;
+            text-decoration: none;
+        }
+        .category-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .category-card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #0275ff;
+            color: #fff;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0055cc;
+        }
+        .policy-icon {
+            font-size: 36px;
+            color: #0275ff;
+            margin-bottom: 15px;
+        }
+        .ad-container {
+            background-color: #f5f7fa;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+            border-radius: 4px;
+            border: 1px dashed #ccc;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 햄버거 메뉴 -->
+    <div class="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- 사이드바 네비게이션 -->
+    <div class="sidebar">
+        <a href="../index.html" class="menu-item">홈</a>
+        <a href="../category/pregnancy-childbirth/index.html" class="menu-item active">임신·출산 지원</a>
+        <a href="../category/infant-care/index.html" class="menu-item">영유아 양육 지원</a>
+        <a href="../category/childcare-education/index.html" class="menu-item">보육·교육 지원</a>
+        <a href="../category/work-family-balance/index.html" class="menu-item">일·가정 양립 지원</a>
+        <a href="../category/housing-support/index.html" class="menu-item">신혼부부·출산가구 주거 지원</a>
+        <a href="../category/multi-child-family/index.html" class="menu-item">다자녀 가구 지원</a>
+        <a href="../category/low-income-single-parent/index.html" class="menu-item">기타 저소득층 및 한부모 가족 등 지원</a>
+    </div>
+
+    <div class="container">
+        <header class="p-4 bg-white shadow-sm flex items-center justify-center relative">
+            <h1 class="text-xl font-bold text-center">복지정책 정보 사이트</h1>
+        </header>
+
+        <main class="p-4">
+            <!-- 경로 표시 -->
+            <div class="breadcrumb">
+                <a href="../index.html">홈</a> &gt; 임신·출산 지원
+            </div>
+
+            <!-- 상단 광고 영역 -->
+            <div class="ad-container">
+                <p>광고 영역 (728x90 또는 320x100)</p>
+            </div>
+
+            <!-- 카테고리 소개 -->
+            <section class="my-6">
+                <h2 class="text-2xl font-bold mb-4 text-gray-800">임신·출산 지원</h2>
+                <p class="text-gray-600 mb-4">
+                    임신과 출산 과정에서 필요한 다양한 지원 정책을 알아보세요. 산모와 신생아를 위한 건강관리 서비스, 의료비 지원, 기저귀 지원 등 다양한 혜택이 준비되어 있습니다.
+                </p>
+            </section>
+
+            <!-- 세부 정책 목록 -->
+            <section class="my-8">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">지원 정책 목록</h3>
+                
+                <!-- 정책 카드 1 -->
+                <div class="category-card">
+                    <div class="policy-icon">
+                        <i class="ri-health-book-line"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">임신·출산 진료비 지원(국민행복카드)</h4>
+                    <p class="text-gray-600 mb-4">
+                        임신과 출산 관련 진료비를 지원하는 바우처 제도로, 1회당 100만원(쌍둥이 140만원)을 지원합니다. 병원, 약국 등에서 사용 가능합니다.
+                    </p>
+                    <a href="../category/pregnancy-childbirth/checkup-support.html" class="btn">자세히 보기</a>
+                </div>
+                
+                <!-- 정책 카드 2 -->
+                <div class="category-card">
+                    <div class="policy-icon">
+                        <i class="ri-hospital-line"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">고위험 임산부 의료비 지원</h4>
+                    <p class="text-gray-600 mb-4">
+                        19대 고위험 임신질환으로 입원치료 받은 임산부의 입원치료비 지원. 기준 중위소득 180% 이하 가구가 대상입니다.
+                    </p>
+                    <a href="../category/pregnancy-childbirth/high-risk-pregnancy.html" class="btn">자세히 보기</a>
+                </div>
+
+                <!-- 중간 광고 영역 -->
+                <div class="ad-container my-6">
+                    <p>광고 영역 (300x250)</p>
+                </div>
+                
+                <!-- 정책 카드 3 -->
+                <div class="category-card">
+                    <div class="policy-icon">
+                        <i class="ri-women-line"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">청소년 산모 임신·출산 의료비 지원</h4>
+                    <p class="text-gray-600 mb-4">
+                        만 19세 이하 청소년 산모의 임신·출산 의료비를 지원하는 제도로, 소득·재산 기준 없이 120만원 바우처를 지원합니다.
+                    </p>
+                    <a href="../category/pregnancy-childbirth/teen-pregnancy.html" class="btn">자세히 보기</a>
+                </div>
+                
+                <!-- 정책 카드 4 -->
+                <div class="category-card">
+                    <div class="policy-icon">
+                        <i class="ri-gift-line"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">출산 축하금/서비스</h4>
+                    <p class="text-gray-600 mb-4">
+                        지방자치단체별로 제공하는 출산 축하금, 상품권, 물품 등의 지원 제도로, 지역마다 지원 금액과 조건이 다릅니다.
+                    </p>
+                    <a href="../category/pregnancy-childbirth/childbirth-celebration.html" class="btn">자세히 보기</a>
+                </div>
+                
+                <!-- 정책 카드 5 -->
+                <div class="category-card">
+                    <div class="policy-icon">
+                        <i class="ri-nurse-line"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">산모·신생아 건강관리 지원(산후도우미)</h4>
+                    <p class="text-gray-600 mb-4">
+                        출산 가정에 건강관리사가 방문하여 산모의 건강회복과 신생아의 양육을 돕는 서비스로, 소득 수준에 따라 본인부담금이 차등 적용됩니다.
+                    </p>
+                    <a href="../category/pregnancy-childbirth/postpartum-care.html" class="btn">자세히 보기</a>
+                </div>
+                
+                <!-- 정책 카드 6 -->
+                <div class="category-card">
+                    <div class="policy-icon">
+                        <i class="ri-baby-line"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">기저귀·조제분유 지원</h4>
+                    <p class="text-gray-600 mb-4">
+                        저소득층 영아(0~24개월) 가정의 육아 필수품인 기저귀 및 조제분유 구매 비용을 지원하는 제도입니다.
+                    </p>
+                    <a href="../category/pregnancy-childbirth/diaper-formula.html" class="btn">자세히 보기</a>
+                </div>
+            </section>
+
+            <!-- 관련 카테고리 추천 -->
+            <section class="my-8 bg-gray-50 p-4 rounded-lg">
+                <h3 class="text-lg font-semibold mb-3">관련 카테고리</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="../category/infant-care/index.html" class="bg-white p-3 rounded-md shadow-sm text-center hover:shadow-md transition duration-300">
+                        <i class="ri-baby-line text-2xl text-blue-500 mb-2 block"></i>
+                        <span>영유아 양육 지원</span>
+                    </a>
+                    <a href="../category/work-family-balance/index.html" class="bg-white p-3 rounded-md shadow-sm text-center hover:shadow-md transition duration-300">
+                        <i class="ri-home-office-line text-2xl text-blue-500 mb-2 block"></i>
+                        <span>일·가정 양립 지원</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- 하단 광고 영역 -->
+            <div class="ad-container">
+                <p>광고 영역 (300x250 또는 320x100)</p>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 복지정책 정보 사이트. All rights reserved.</p>
+            <p>최종 업데이트: 2025-05-19</p>
+        </footer>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // 햄버거 메뉴 토글
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+
+        // 사이드바 외부 클릭 시 닫기
+        document.addEventListener('click', function(event) {
+            const sidebar = document.querySelector('.sidebar');
+            const hamburger = document.querySelector('.hamburger-menu');
+            
+            if (!sidebar.contains(event.target) && !hamburger.contains(event.target) && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

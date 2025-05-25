@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고위험 임산부 의료비 지원 - 복지정책 정보 사이트</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #fff;
+            min-height: 100vh;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        .hamburger-menu {
+            display: block;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            width: 30px;
+            height: 22px;
+            z-index: 1001;
+            cursor: pointer;
+        }
+        .hamburger-menu span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            margin-bottom: 5px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100%;
+            background-color: #fff;
+            z-index: 1000;
+            overflow-y: auto;
+            transition: left 0.3s ease;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            padding-top: 60px;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .menu-item {
+            display: block;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .menu-item:hover, .menu-item.active {
+            background-color: #f0f8ff;
+            color: #0275ff;
+        }
+        .menu-item i {
+            margin-right: 10px;
+            color: #0275ff;
+        }
+        .policy-card {
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .policy-title {
+            background-color: #0275ff;
+            color: white;
+            padding: 12px 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .policy-content {
+            padding: 15px;
+            background-color: white;
+        }
+        .btn-primary {
+            background-color: #0275ff;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .btn-secondary {
+            background-color: #f3f4f6;
+            color: #374151;
+            padding: 8px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 500;
+            border: 1px solid #e5e7eb;
+        }
+        .ad-placeholder {
+            background-color: #f9fafb;
+            border: 1px dashed #d1d5db;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            color: #6b7280;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .section-heading {
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            color: #0275ff;
+            font-size: 1.1rem;
+        }
+        .faq-item {
+            margin-bottom: 15px;
+        }
+        .faq-question {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #4b5563;
+        }
+        .breadcrumb {
+            display: flex;
+            padding: 10px 0;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: #6b7280;
+            text-decoration: none;
+        }
+        .breadcrumb span {
+            margin: 0 5px;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body>
+    <div class="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="sidebar">
+        <a href="index.html" class="menu-item">
+            <i class="bi bi-house-fill"></i> 홈
+        </a>
+        <a href="category/pregnancy-childbirth" class="menu-item active">
+            <i class="bi bi-person-heart"></i> 임신·출산 지원
+        </a>
+        <a href="category/infant-care" class="menu-item">
+            <i class="bi bi-cup-straw"></i> 영유아 양육 지원
+        </a>
+        <a href="category/childcare-education" class="menu-item">
+            <i class="bi bi-book-fill"></i> 보육·교육 지원
+        </a>
+        <a href="category/work-family-balance" class="menu-item">
+            <i class="bi bi-briefcase-fill"></i> 일·가정 양립 지원
+        </a>
+        <a href="category/housing-support" class="menu-item">
+            <i class="bi bi-house-door-fill"></i> 신혼부부·출산가구 주거 지원
+        </a>
+        <a href="category/multi-child-family" class="menu-item">
+            <i class="bi bi-people-fill"></i> 다자녀 가구 지원
+        </a>
+        <a href="category/low-income-single-parent" class="menu-item">
+            <i class="bi bi-heart-fill"></i> 기타 저소득층 및 한부모 가족 지원
+        </a>
+    </div>
+
+    <div class="container">
+        <div class="px-4 py-3">
+            <div class="breadcrumb">
+                <a href="index.html">홈</a>
+                <span>></span>
+                <a href="category/pregnancy-childbirth">임신·출산 지원</a>
+                <span>></span>
+                <a href="#" class="text-blue-600">고위험 임산부 의료비 지원</a>
+            </div>
+
+            <h1 class="text-2xl font-bold mb-3">고위험 임산부 의료비 지원</h1>
+            <p class="text-gray-600 mb-4">고위험 임신질환으로 인한 입원치료비 부담을 덜어주는 지원 정책입니다.</p>
+
+            <!-- 상단 광고 -->
+            <div class="ad-placeholder">
+                광고 영역 (728x90 또는 320x100)
+            </div>
+
+            <div class="policy-card">
+                <div class="policy-title">
+                    제도 개요
+                </div>
+                <div class="policy-content">
+                    <p>19대 고위험 임신질환으로 입원치료를 받은 임산부의 입원치료비 중 본인부담금을 지원하여 경제적 부담을 완화하고 건강한 출산을 돕는 제도입니다.</p>
+                    <p class="mt-2">이 제도는 보건복지부에서 주관하며, 각 지역 보건소를 통해 신청할 수 있습니다.</p>
+                </div>
+            </div>
+
+            <div class="policy-card">
+                <div class="policy-title">
+                    지원 대상
+                </div>
+                <div class="policy-content">
+                    <p>다음 조건을 모두 충족하는 임산부:</p>
+                    <ul class="list-disc pl-5 mt-2">
+                        <li>기준 중위소득 180% 이하 가구의 구성원</li>
+                        <li>19대 고위험 임신질환으로 진단받고 입원치료 받은 자</li>
+                        <li>분만일로부터 6개월 이내 신청 가능</li>
+                    </ul>
+                    
+                    <div class="bg-blue-50 p-3 rounded-md mt-3">
+                        <p class="text-sm">💡 <strong>참고</strong>: 소득기준은 매년 변경될 수 있으므로, 2025년 기준 중위소득 180%에 해당하는 금액은 신청 시점에 보건소를 통해 확인하세요.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 중간 광고 -->
+            <div class="ad-placeholder">
+                광고 영역 (300x250)
+            </div>
+
+            <div class="policy-card">
+                <div class="policy-title">
+                    지원 내용
+                </div>
+                <div class="policy-content">
+                    <p>고위험 임산부의 입원치료비 중 전액본인부담금 및 비급여 진료비의 일부 또는 전부를 지원합니다.</p>
+                    
+                    <div class="section-heading">지원 금액</div>
+                    <ul class="list-disc pl-5">
+                        <li>1인당 최대 300만원 지원</li>
+                        <li>전액본인부담금 및 비급여 진료비의 90% 지원 (단, 국민기초생활보장 의료급여 수급자는 100% 지원)</li>
+                    </ul>
+                    
+                    <div class="section-heading">지원 범위</div>
+                    <p>입원치료 관련 진료비 중 급여 항목의 전액본인부담금 및 비급여 항목 진료비</p>
+                    <p class="text-sm text-gray-600 mt-1">(국민건강보험공단 본인일부부담금, 개인 실손보험 등에서 보전받은 의료비는 제외)</p>
+
+                    <div class="bg-gray-50 p-3 rounded-md mt-3">
+                        <p class="italic text-sm text-gray-600">"쌍둥이를 임신했는데 조기진통으로 2개월간 입원치료를 받았어요. 총 의료비가 450만원 정도 나왔는데, 건강보험 적용 후 제가 직접 부담해야 할 금액이 250만원이었어요. 고위험 임산부 의료비 지원으로 이 중 90%인 225만원을 지원받을 수 있었습니다. 정말 큰 도움이 되었어요."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="policy-card">
+                <div class="policy-title">
+                    지원 대상 질환
+                </div>
+                <div class="policy-content">
+                    <p>다음 19대 고위험 임신질환으로 진단받고 입원치료를 받은 경우 지원 가능합니다.</p>
+                    
+                    <ol class="list-decimal pl-5 mt-2">
+                        <li>조기진통</li>
+                        <li>분만관련 출혈</li>
+                        <li>중증 임신중독증</li>
+                        <li>양막의 조기파열</li>
+                        <li>태반조기박리</li>
+                        <li>전치태반</li>
+                        <li>절박유산</li>
+                        <li>자궁경부무력증</li>
+                        <li>고혈압</li>
+                        <li>다태임신</li>
+                        <li>당뇨병</li>
+                        <li>대사장애를 동반한 임신과다구토</li>
+                        <li>신질환</li>
+                        <li>심부전</li>
+                        <li>자궁내 성장제한</li>
+                        <li>자궁 및 자궁의 부속기 질환</li>
+                        <li>자궁경관무력증</li>
+                        <li>분만전 출혈</li>
+                        <li>다태임신 및 양수과다증</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="policy-card">
+                <div class="policy-title">
+                    신청 방법
+                </div>
+                <div class="policy-content">
+                    <div class="section-heading">신청 기관</div>
+                    <p>임산부 주소지 관할 보건소 방문 신청</p>
+                    
+                    <div class="section-heading">신청 기간</div>
+                    <p>분만일로부터 6개월 이내</p>
+                    
+                    <div class="section-heading">필요 서류</div>
+                    <ul class="list-disc pl-5">
+                        <li>고위험 임산부 의료비 지원 신청서</li>
+                        <li>의사진단서 1부 (질병명 및 질병코드 포함)</li>
+                        <li>입퇴원확인서 1부 (또는 입퇴원일이 기재된 진단서)</li>
+                        <li>진료비 영수증 1부</li>
+                        <li>진료비 세부내역서 1부</li>
+                        <li>출생증명서 1부 (분만 전 퇴원한 경우는 제외)</li>
+                        <li>주민등록등본 1부 (행정정보공동이용 동의 시 생략 가능)</li>
+                        <li>건강보험증 사본 1부 (행정정보공동이용 동의 시 생략 가능)</li>
+                        <li>건강보험료 납부확인서 1부 (행정정보공동이용 동의 시 생략 가능)</li>
+                        <li>입금계좌통장 사본 1부</li>
+                    </ul>
+                    
+                    <div class="section-heading">지원금 지급</div>
+                    <p>신청 후 약 2주 이내 지정한 계좌로 지원금 입금</p>
+                </div>
+            </div>
+
+            <!-- 중간 광고 -->
+            <div class="ad-placeholder">
+                광고 영역 (300x250)
+            </div>
+
+            <div class="policy-card">
+                <div class="policy-title">
+                    유의사항
+                </div>
+                <div class="policy-content">
+                    <ul class="list-disc pl-5">
+                        <li>동일한 질병으로 입원과 퇴원을 반복할 경우, 입원횟수에 관계없이 1회 지원</li>
+                        <li>다른 법률에 의해 의료비를 지원받은 경우, 중복 지원 불가</li>
+                        <li>지원금 신청은 분만일로부터 6개월 이내에 신청해야 함</li>
+                        <li>국민건강보험 미가입자(국제보험 가입자 등)는 지원 대상에서 제외</li>
+                        <li>한방 치료비, 간병비, 의료기기 구입비, 제증명료, 보호자 식대 등은 지원 제외</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="policy-card">
+                <div class="policy-title">
+                    자주 묻는 질문
+                </div>
+                <div class="policy-content">
+                    <div class="faq-item">
+                        <div class="faq-question">Q: 지원 신청은 퇴원 후에만 가능한가요?</div>
+                        <p>A: 네, 퇴원 후 분만일로부터 6개월 이내에 신청해야 합니다. 입원 중에는 신청이 불가능합니다.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: 외국인도 지원받을 수 있나요?</div>
+                        <p>A: 국민건강보험에 가입되어 있고, 국내에 주민등록이 되어있는 외국인은 지원 가능합니다.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: 진료비 세부내역서는 어디서 발급받나요?</div>
+                        <p>A: 입원했던 의료기관의 원무과나 진료비 수납창구에서 발급받을 수 있습니다.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: 지정된 19대 질환 외에도 지원 가능한가요?</div>
+                        <p>A: 아니요, 지정된 19대 고위험 임신질환에 해당하는 경우에만 지원 가능합니다.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: 개인 실손보험에서 보상받은 의료비도 지원받을 수 있나요?</div>
+                        <p>A: 개인 실손보험에서 보상받은 의료비 부분은 제외하고 실제 본인이 부담한 의료비에 대해서만 지원됩니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <a href="pregnancy-checkup-support" class="btn-secondary">
+                    <i class="bi bi-arrow-left"></i> 이전 정책
+                </a>
+                <a href="category/pregnancy-childbirth" class="btn-primary">
+                    목록으로
+                </a>
+                <a href="teen-mom-support" class="btn-secondary">
+                    다음 정책 <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- 하단 광고 -->
+            <div class="ad-placeholder">
+                광고 영역 (728x90 또는 320x100)
+            </div>
+
+            <div class="related-policies mt-5 mb-10">
+                <h3 class="text-lg font-bold mb-3">관련 정책</h3>
+                <div class="flex overflow-x-auto pb-3 space-x-3">
+                    <a href="pregnancy-checkup-support" class="flex-shrink-0 w-36 p-3 bg-white rounded-lg shadow border border-gray-200 hover:bg-blue-50">
+                        <p class="text-sm font-medium">임신·출산 진료비 지원</p>
+                    </a>
+                    <a href="teen-mom-support" class="flex-shrink-0 w-36 p-3 bg-white rounded-lg shadow border border-gray-200 hover:bg-blue-50">
+                        <p class="text-sm font-medium">청소년 산모 의료비 지원</p>
+                    </a>
+                    <a href="postnatal-care-support" class="flex-shrink-0 w-36 p-3 bg-white rounded-lg shadow border border-gray-200 hover:bg-blue-50">
+                        <p class="text-sm font-medium">산모·신생아 건강관리 지원</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 햄버거 메뉴 토글
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+
+        // 사이드바 외부 클릭 시 닫기
+        document.addEventListener('click', function(event) {
+            const sidebar = document.querySelector('.sidebar');
+            const hamburger = document.querySelector('.hamburger-menu');
+            
+            if (!sidebar.contains(event.target) && !hamburger.contains(event.target) && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+        });
+
+        // 메뉴 항목 클릭 이벤트
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // 현재 활성화된 메뉴 항목 비활성화
+                const activeItem = document.querySelector('.menu-item.active');
+                if (activeItem) {
+                    activeItem.classList.remove('active');
+                }
+                
+                // 클릭한 메뉴 항목 활성화
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

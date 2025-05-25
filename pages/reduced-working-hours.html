@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>육아기 근로시간 단축(급여) - 복지정책 정보 사이트</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        .policy-card {
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .policy-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        .tab-active {
+            color: #0275ff;
+            border-bottom: 2px solid #0275ff;
+        }
+        .hamburger-menu {
+            display: block;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            width: 30px;
+            height: 22px;
+            z-index: 1001;
+            cursor: pointer;
+        }
+        .hamburger-menu span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            margin-bottom: 5px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100%;
+            background-color: #fff;
+            z-index: 1000;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            overflow-y: auto;
+            padding: 60px 0 20px;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .menu-item {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .menu-item:hover, .menu-item.active {
+            background-color: #f5f9ff;
+            color: #0275ff;
+        }
+        .btn-primary {
+            background-color: #0275ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+        .btn-primary:hover {
+            background-color: #0256c2;
+        }
+        .btn-outline {
+            border: 1px solid #0275ff;
+            color: #0275ff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+        .btn-outline:hover {
+            background-color: #f5f9ff;
+        }
+        .ad-area {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav class="sidebar">
+        <div class="py-4 px-6">
+            <h2 class="text-xl font-bold text-center mb-6">복지정책 정보</h2>
+            <a href="#" class="menu-item">
+                <i class="ri-home-line mr-2"></i> 홈
+            </a>
+            <a href="#" class="menu-item">
+                <i class="ri-pregnant-line mr-2"></i> 임신·출산 지원
+            </a>
+            <a href="#" class="menu-item">
+                <i class="ri-baby-line mr-2"></i> 영유아 양육 지원
+            </a>
+            <a href="#" class="menu-item">
+                <i class="ri-book-open-line mr-2"></i> 보육·교육 지원
+            </a>
+            <a href="#" class="menu-item active">
+                <i class="ri-briefcase-line mr-2"></i> 일·가정 양립 지원
+            </a>
+            <a href="#" class="menu-item">
+                <i class="ri-home-heart-line mr-2"></i> 신혼부부·출산가구 주거 지원
+            </a>
+            <a href="#" class="menu-item">
+                <i class="ri-parent-line mr-2"></i> 다자녀 가구 지원
+            </a>
+            <a href="#" class="menu-item">
+                <i class="ri-shield-user-line mr-2"></i> 기타 저소득층 및 한부모 가족 지원
+            </a>
+        </div>
+    </nav>
+
+    <div class="container min-h-screen pb-12">
+        <header class="pt-6 pb-4 px-4 text-center relative">
+            <a href="javascript:history.back()" class="absolute left-4 top-6 text-gray-600">
+                <i class="ri-arrow-left-line text-xl"></i>
+            </a>
+            <h1 class="text-xl font-bold">육아기 근로시간 단축(급여)</h1>
+        </header>
+
+        <div class="px-5 py-3">
+            <div class="flex text-sm">
+                <a href="#" class="text-gray-500">홈</a>
+                <span class="mx-2 text-gray-400">></span>
+                <a href="#" class="text-gray-500">일·가정 양립 지원</a>
+                <span class="mx-2 text-gray-400">></span>
+                <span class="text-blue-500">육아기 근로시간 단축(급여)</span>
+            </div>
+        </div>
+
+        <!-- Ad Area (Top) -->
+        <div class="ad-area mx-5 h-20 mb-6">
+            광고 영역 (728x90 또는 320x100)
+        </div>
+
+        <!-- Main Content -->
+        <div class="px-5">
+            <section class="mb-8">
+                <h2 class="text-xl font-bold mb-4 text-blue-500">
+                    <i class="ri-information-line"></i> 제도 개요
+                </h2>
+                <p class="text-gray-700 mb-4">
+                    육아기 근로시간 단축은 만 8세 이하 또는 초등학교 2학년 이하의 자녀를 양육하기 위해 근로시간을 줄여 일할 수 있는 제도입니다. 근로자는 전일제 근무 대신 단축된 시간으로 근무하며, 줄어든 임금을 일부 보전받을 수 있습니다.
+                </p>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <p class="text-blue-700 text-sm">
+                        이 제도를 통해 일과 가정의 양립을 도모하고, 경력 단절을 방지하며, 자녀와 함께할 수 있는 시간을 확보할 수 있습니다.
+                    </p>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-xl font-bold mb-4 text-blue-500">
+                    <i class="ri-user-line"></i> 지원 대상
+                </h2>
+                <ul class="list-disc pl-5 text-gray-700 mb-4">
+                    <li class="mb-2">만 8세 이하 또는 초등학교 2학년 이하의 자녀를 둔 근로자</li>
+                    <li class="mb-2">고용보험에 가입된 자</li>
+                    <li class="mb-2">해당 사업장에 6개월 이상 근무한 근로자</li>
+                </ul>
+                <div class="bg-yellow-50 p-4 rounded-lg">
+                    <p class="text-yellow-700 text-sm">
+                        <i class="ri-lightbulb-line mr-1"></i> 같은 자녀에 대해 배우자가 육아휴직 중이어도 근로시간 단축을 사용할 수 있습니다.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Ad Area (Middle) -->
+            <div class="ad-area h-20 my-6">
+                광고 영역 (728x90 또는 320x100)
+            </div>
+
+            <section class="mb-8">
+                <h2 class="text-xl font-bold mb-4 text-blue-500">
+                    <i class="ri-time-line"></i> 단축 기간
+                </h2>
+                <p class="text-gray-700 mb-4">
+                    자녀 1명당 최대 1년까지 사용 가능합니다. 단, 육아휴직과 육아기 근로시간 단축을 합산하여 최대 3년(1,095일)까지 사용할 수 있습니다.
+                </p>
+                <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                    <h3 class="font-medium text-blue-700 mb-2">유연한 사용 방식</h3>
+                    <p class="text-blue-700 text-sm">
+                        육아휴직과 육아기 근로시간 단축은 분할하여 사용할 수 있으며, 필요에 따라 두 제도를 번갈아 사용하는 것도 가능합니다.
+                    </p>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-xl font-bold mb-4 text-blue-500">
+                    <i class="ri-time-fill"></i> 근로시간
+                </h2>
+                <p class="text-gray-700 mb-2">
+                    주당 15시간 이상 35시간 이하로 단축하여 근무할 수 있습니다.
+                </p>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-medium mb-2">단축 방식 예시</h3>
+                    <ul class="list-disc pl-5 text-gray-600 text-sm">
+                        <li class="mb-1">1일 근로시간 줄이기 (예: 8시간 → 5시간)</li>
+                        <li class="mb-1">주 1~2일 휴무 (예: 주 5일 → 주 3일 근무)</li>
+                        <li class="mb-1">오전/오후 반차 활용 (예: 오전 근무 또는 오후 근무만 선택)</li>
+                        <li>탄력적 근로시간제 활용 (요일별 근무시간 다르게 조정)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-xl font-bold mb-4 text-blue-500">
+                    <i class="ri-money-dollar-circle-line"></i> 급여 지원
+                </h2>
+                <p class="text-gray-700 mb-4">
+                    육아기 근로시간 단축으로 인해 줄어든 임금의 일부를 보전받을 수 있습니다.
+                </p>
+                <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                    <h3 class="font-medium text-blue-700 mb-2">지원 금액</h3>
+                    <p class="text-blue-700 text-sm mb-2">
+                        <strong>단축 전 통상임금과 단축 후 근로시간에 비례한 임금 차이의 80%를 지원</strong>
+                    </p>
+                    <p class="text-blue-700 text-sm">
+                        ※ 최대 월 150만원까지 지원 가능
+                    </p>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <h3 class="font-medium mb-2">급여 산정 예시</h3>
+                    <p class="text-gray-600 text-sm">
+                        월 통상임금 300만원인 근로자가 주 40시간에서 주 20시간으로 단축한 경우<br>
+                        - 단축 후 임금: 150만원 (300만원 × 50%)<br>
+                        - 임금 차이: 150만원<br>
+                        - 지원금: 120만원 (150만원 × 80%)
+                    </p>
+                </div>
+            </section>
+
+            <!-- Ad Area (Middle 2) -->
+            <div class="ad-area h-20 my-6">
+                광고 영역 (728x90 또는 320x100)
+            </div>
+
+            <section class="mb-8">
+                <h2 class="text-xl font-bold mb-4 text-blue-500">
+                    <i class="ri-file-list-3-line"></i> 신청 방법
+                </h2>
+                <div class="mb-4">
+                    <h3 class="font-medium mb-2">1. 근로시간 단축 신청</h3>
+                    <p class="text-gray-700 mb-2">
+                        사업주에게 육아기 근로시간 단축 개시 예정일 30일 전까지 신청서를 제출합니다.
+                    </p>
+                    <p class="text-gray-600 text-sm">
+                        ※ 신청서에는 희망 근로시간, 단축 기간 등을 명시해야 합니다.
+                    </p>
+                </div>
+                <div class="mb-4">
+                    <h3 class="font-medium mb-2">2. 급여 신청</h3>
+                    <p class="text-gray-700 mb-2">
+                        근로시간 단축 시작 후, 다음 방법 중 하나로 급여를 신청합니다:
+                    </p>
+                    <ul class="list-disc pl-5 text-gray-600 text-sm">
+                        <li class="mb-1">고용센터 방문 신청</li>
+                        <li class="mb-1">고용보험 홈페이지(www.ei.go.kr) 온라인 신청</li>
+                        <li>우편 신청</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-xl font-bold mb-4 text-blue-500">
+                    <i class="ri-file-paper-2-line"></i> 준비 서류
+                </h2>
+                <ul class="list-disc pl-5 text-gray-700 mb-4">
+                    <li class="mb-2">육아기 근로시간 단축 급여 신청서</li>
+                    <li class="mb-2">근로시간 단축 확인서 (사업주 확인)</li>
+                    <li class="mb-2">통상임금을 확인할 수 있는 자료 (임금대장 등)</li>
+                    <li class="mb-2">가족관계증명서</li>
+                    <li>통장 사본</li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-xl font-bold mb-4 text-blue-500">
+                    <i class="ri-alert-line"></i> 유의사항
+                </h2>
+                <ul class="list-disc pl-5 text-gray-700 mb-5">
+                    <li class="mb-3">
+                        <span class="font-medium">근속기간 6개월 이상:</span> 해당 사업장에서 6개월 이상 근무해야 신청 가능합니다.
+                    </li>
+                    <li class="mb-3">
+                        <span class="font-medium">사업주 거부 제한:</span> 사업주는 대체인력 채용이 불가능하거나 정상적인 사업 운영에 중대한 지장을 초래하는 경우 외에는 근로자의 육아기 근로시간 단축 신청을 거부할 수 없습니다.
+                    </li>
+                    <li class="mb-3">
+                        <span class="font-medium">불리한 처우 금지:</span> 사업주는 육아기 근로시간 단축을 이유로 해당 근로자에게 불리한 처우를 해서는 안 됩니다.
+                    </li>
+                    <li>
+                        <span class="font-medium">급여 신청 기한:</span> 육아기 근로시간 단축 급여는 단축 종료일로부터 12개월 이내에 신청해야 합니다.
+                    </li>
+                </ul>
+                <div class="bg-yellow-50 p-4 rounded-lg">
+                    <p class="text-yellow-700 text-sm">
+                        <i class="ri-lightbulb-line mr-1"></i> <strong>경험담:</strong> "주 3일 근무로 단축하여 아이와 함께하는 시간이 늘었어요. 급여가 줄었지만 정부 지원금으로 어느 정도 보전받을 수 있어 큰 도움이 되었습니다. 무엇보다 일도 계속하면서 육아도 할 수 있어 경력 단절 걱정 없이 아이를 돌볼 수 있었어요."
+                    </p>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-xl font-bold mb-4 text-blue-500">
+                    <i class="ri-question-line"></i> 자주 묻는 질문
+                </h2>
+                <div class="space-y-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-medium mb-2">Q1: 육아휴직과 육아기 근로시간 단축을 모두 사용할 수 있나요?</h3>
+                        <p class="text-gray-700 text-sm">
+                            A: 네, 같은 자녀에 대해 육아휴직과 육아기 근로시간 단축을 모두 사용할 수 있습니다. 단, 두 제도를 합산하여 최대 3년(1,095일)까지만 사용 가능합니다.
+                        </p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-medium mb-2">Q2: 주 15시간 미만으로 근로시간을 단축할 수 있나요?</h3>
+                        <p class="text-gray-700 text-sm">
+                            A: 아니요, 육아기 근로시간 단축은 주 15시간 이상 35시간 이하로 단축하는 것이 원칙입니다. 주 15시간 미만으로 단축하는 경우에는 육아기 근로시간 단축 급여를 지원받을 수 없습니다.
+                        </p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-medium mb-2">Q3: 육아기 근로시간 단축 중에 다른 직장에서 일할 수 있나요?</h3>
+                        <p class="text-gray-700 text-sm">
+                            A: 아니요, 육아기 근로시간 단축 기간 중에 다른 직장에 취업하여 임금을 받으면 해당 기간의 육아기 근로시간 단축 급여를 지급받을 수 없습니다. 단축 제도의 취지가 자녀 양육을 위한 것이기 때문입니다.
+                        </p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-medium mb-2">Q4: 사업주가 근로시간 단축을 거부할 수 있나요?</h3>
+                        <p class="text-gray-700 text-sm">
+                            A: 사업주는 대체인력 채용이 불가능하거나 정상적인 사업 운영에 중대한 지장을 초래하는 경우에만 근로시간 단축을 거부할 수 있습니다. 이 경우에도 사업주는 해당 근로자에게 그 사유를 서면으로 통보하고, 육아휴직을 사용하게 하거나 그 밖의 조치를 통해 지원해야 합니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Related Policies and Navigation -->
+            <section class="mb-8">
+                <h2 class="text-xl font-bold mb-4 text-blue-500">
+                    <i class="ri-links-line"></i> 관련 정책
+                </h2>
+                <div class="space-y-3">
+                    <a href="#" class="block bg-gray-50 p-3 rounded-lg hover:bg-gray-100 transition duration-200">
+                        <span class="font-medium">출산전후휴가(급여)</span>
+                        <i class="ri-arrow-right-line float-right mt-1"></i>
+                    </a>
+                    <a href="#" class="block bg-gray-50 p-3 rounded-lg hover:bg-gray-100 transition duration-200">
+                        <span class="font-medium">배우자 출산휴가(급여)</span>
+                        <i class="ri-arrow-right-line float-right mt-1"></i>
+                    </a>
+                    <a href="#" class="block bg-gray-50 p-3 rounded-lg hover:bg-gray-100 transition duration-200">
+                        <span class="font-medium">육아휴직(급여)</span>
+                        <i class="ri-arrow-right-line float-right mt-1"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Navigation Buttons -->
+            <div class="flex justify-between mb-8">
+                <a href="#" class="btn-outline w-5/12">
+                    <i class="ri-arrow-left-line mr-1"></i> 이전 정책
+                </a>
+                <a href="#" class="btn-outline w-5/12">
+                    다음 정책 <i class="ri-arrow-right-line ml-1"></i>
+                </a>
+            </div>
+
+            <a href="#" class="btn-primary w-full mb-8">
+                <i class="ri-list-check"></i> 일·가정 양립 지원 목록으로
+            </a>
+
+            <!-- Ad Area (Bottom) -->
+            <div class="ad-area h-24 mb-8">
+                광고 영역 (728x90 또는 320x100)
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 햄버거 메뉴 토글
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+
+        // 사이드바 외부 클릭 시 닫기
+        document.addEventListener('click', function(event) {
+            const sidebar = document.querySelector('.sidebar');
+            const hamburger = document.querySelector('.hamburger-menu');
+
+            if (!sidebar.contains(event.target) && !hamburger.contains(event.target) && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

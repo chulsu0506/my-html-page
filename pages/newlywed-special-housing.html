@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신혼부부 특별공급(분양/임대) - 복지정책 정보 사이트</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        .hamburger-menu {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            width: 30px;
+            height: 22px;
+            z-index: 1001;
+            cursor: pointer;
+        }
+        .hamburger-menu span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            margin-bottom: 5px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100%;
+            background-color: #fff;
+            z-index: 1000;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            overflow-y: auto;
+            padding: 60px 20px 20px;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .menu-item {
+            display: block;
+            padding: 12px 15px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.2s ease;
+        }
+        .menu-item:hover, .menu-item.active {
+            background-color: #e6f3ff;
+            color: #0275ff;
+        }
+        .menu-item i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        .section-title {
+            color: #0275ff;
+            border-left: 4px solid #0275ff;
+            padding-left: 10px;
+        }
+        .btn-primary {
+            background-color: #0275ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            background-color: #0056cc;
+        }
+        .btn-secondary {
+            background-color: #e6f3ff;
+            color: #0275ff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .btn-secondary:hover {
+            background-color: #d1e7ff;
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .tab-active {
+            color: #0275ff;
+            border-bottom: 2px solid #0275ff;
+        }
+        .ad-container {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            text-align: center;
+            padding: 15px;
+            margin: 15px 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="hamburger-menu" id="hamburgerMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <div class="mb-5 pb-5 border-b">
+            <a href="#" class="text-xl font-bold">복지정책 정보 사이트</a>
+        </div>
+        <div class="mb-3">
+            <a href="#" class="menu-item">
+                <i class="fas fa-home"></i> 홈
+            </a>
+        </div>
+        <div class="mb-3">
+            <a href="#" class="menu-item">
+                <i class="fas fa-female"></i> 임신·출산 지원
+            </a>
+        </div>
+        <div class="mb-3">
+            <a href="#" class="menu-item">
+                <i class="fas fa-baby"></i> 영유아 양육 지원
+            </a>
+        </div>
+        <div class="mb-3">
+            <a href="#" class="menu-item">
+                <i class="fas fa-book"></i> 보육·교육 지원
+            </a>
+        </div>
+        <div class="mb-3">
+            <a href="#" class="menu-item">
+                <i class="fas fa-briefcase"></i> 일·가정 양립 지원
+            </a>
+        </div>
+        <div class="mb-3">
+            <a href="#" class="menu-item active">
+                <i class="fas fa-home"></i> 신혼부부·출산가구 주거 지원
+            </a>
+        </div>
+        <div class="mb-3">
+            <a href="#" class="menu-item">
+                <i class="fas fa-users"></i> 다자녀 가구 지원
+            </a>
+        </div>
+        <div class="mb-3">
+            <a href="#" class="menu-item">
+                <i class="fas fa-hands-helping"></i> 기타 저소득층 및 한부모 가족 지원
+            </a>
+        </div>
+    </div>
+
+    <div class="container min-h-screen flex flex-col">
+        <div class="p-4 bg-white sticky top-0 z-10 shadow-sm">
+            <div class="flex justify-center items-center relative">
+                <a href="#" class="absolute left-0 text-gray-500">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+                <h1 class="text-lg font-bold">신혼부부 특별공급(분양/임대)</h1>
+            </div>
+        </div>
+
+        <nav class="flex text-sm px-4 py-2 bg-gray-50">
+            <a href="#" class="text-gray-500 hover:text-gray-700">홈</a>
+            <span class="mx-2 text-gray-400">></span>
+            <a href="#" class="text-gray-500 hover:text-gray-700">신혼부부·출산가구 주거 지원</a>
+            <span class="mx-2 text-gray-400">></span>
+            <span class="text-gray-700">신혼부부 특별공급</span>
+        </nav>
+
+        <div class="flex-grow p-4">
+            <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                <h2 class="text-xl font-bold text-blue-600 mb-2">
+                    <i class="fas fa-info-circle mr-2"></i>제도 개요
+                </h2>
+                <p class="text-gray-700">
+                    신혼부부 특별공급은 주택 건설량의 일정 비율을 신혼부부에게 특별히 공급하여 주거 안정을 지원하는 제도입니다. 공공분양주택, 민영주택, 공공임대주택 등에서 혼인 기간이 짧은 신혼부부나 예비신혼부부에게 우선적으로 주택을 공급합니다.
+                </p>
+            </div>
+
+            <div class="ad-container">
+                <p class="text-sm text-gray-500 mb-2">광고</p>
+                <div class="h-24 bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-400">728x90 또는 320x100 광고 영역</span>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h2 class="text-lg font-bold section-title mb-3">지원 대상</h2>
+                <div class="card p-4 bg-white">
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><span class="font-medium">혼인 기간:</span> 혼인신고일 기준 7년 이내</li>
+                        <li><span class="font-medium">예비신혼부부:</span> 입주자모집공고일 현재 혼인 예정자(입주 전 혼인신고 필요)</li>
+                        <li><span class="font-medium">무주택세대구성원:</span> 신청자와 세대원 모두 주택을 소유하지 않아야 함</li>
+                        <li><span class="font-medium">소득 및 자산 기준:</span> 정부 정책에 따라 설정된 기준을 충족해야 함</li>
+                        <li><span class="font-medium">청약통장:</span> 주택청약종합저축에 가입하여 기준 기간 이상 납입</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h2 class="text-lg font-bold section-title mb-3">공급 유형</h2>
+                <div class="card p-4 bg-white">
+                    <div class="mb-4">
+                        <h3 class="font-medium text-blue-600">1. 공공분양주택</h3>
+                        <p>LH, SH 등 공공기관이 공급하는 분양주택으로, 분양가가 시세보다 저렴</p>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="font-medium text-blue-600">2. 민영주택 분양</h3>
+                        <p>민간 건설사가 공급하는 아파트에 특별공급 물량 할당</p>
+                    </div>
+                    <div>
+                        <h3 class="font-medium text-blue-600">3. 공공임대주택</h3>
+                        <p>장기간 저렴하게 거주할 수 있는 임대주택 우선 공급</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h2 class="text-lg font-bold section-title mb-3">소득 기준 (2025년 기준)</h2>
+                <div class="card p-4 bg-white overflow-x-auto">
+                    <table class="min-w-full">
+                        <thead>
+                            <tr class="bg-blue-50">
+                                <th class="py-2 px-3 text-left text-sm">구분</th>
+                                <th class="py-2 px-3 text-left text-sm">일반 신혼부부</th>
+                                <th class="py-2 px-3 text-left text-sm">맞벌이 신혼부부</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="py-2 px-3 text-sm font-medium">공공분양</td>
+                                <td class="py-2 px-3 text-sm">도시근로자 월평균소득 120% 이하</td>
+                                <td class="py-2 px-3 text-sm">도시근로자 월평균소득 130% 이하</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 text-sm font-medium">민영주택</td>
+                                <td class="py-2 px-3 text-sm">도시근로자 월평균소득 140% 이하</td>
+                                <td class="py-2 px-3 text-sm">도시근로자 월평균소득 160% 이하</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="text-xs text-gray-500 mt-2">※ 정확한 기준은 해당 입주자모집공고문 확인 필수</p>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h2 class="text-lg font-bold section-title mb-3">자산 기준 (2025년 기준)</h2>
+                <div class="card p-4 bg-white">
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><span class="font-medium">부동산 자산:</span> 2억 1,550만원 이하</li>
+                        <li><span class="font-medium">자동차 자산:</span> 3,557만원 이하</li>
+                    </ul>
+                    <p class="text-xs text-gray-500 mt-2">※ 기준금액은 매년 변동될 수 있으니 공고문 확인 필요</p>
+                </div>
+            </div>
+
+            <div class="ad-container">
+                <p class="text-sm text-gray-500 mb-2">광고</p>
+                <div class="h-24 bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-400">300x250 광고 영역</span>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h2 class="text-lg font-bold section-title mb-3">공급 비율</h2>
+                <div class="card p-4 bg-white">
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><span class="font-medium">공공주택:</span> 전체 주택 물량의 30% 내외</li>
+                        <li><span class="font-medium">민영주택:</span> 전체 주택 물량의 15~20% 내외</li>
+                    </ul>
+                    <p class="text-xs text-gray-500 mt-2">※ 사업지구 및 정책에 따라 비율이 변동될 수 있음</p>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h2 class="text-lg font-bold section-title mb-3">신청 방법</h2>
+                <div class="card p-4 bg-white">
+                    <h3 class="font-medium text-blue-600 mb-2">1. 청약 신청</h3>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li><span class="font-medium">온라인:</span> 청약Home 홈페이지(www.applyhome.co.kr) 또는 앱</li>
+                        <li><span class="font-medium">방문:</span> 한국부동산원 청약 접수 창구</li>
+                    </ul>
+                    
+                    <h3 class="font-medium text-blue-600 mb-2">2. 필요 서류</h3>
+                    <ul class="list-disc pl-5">
+                        <li>신분증</li>
+                        <li>주민등록표등본</li>
+                        <li>가족관계증명서</li>
+                        <li>혼인관계증명서</li>
+                        <li>소득증빙서류(근로소득원천징수영수증, 소득금액증명원 등)</li>
+                        <li>자산보유 증빙 서류(필요시)</li>
+                        <li>예비신혼부부: 예비신혼 증명 서류(예식장 계약서 등)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h2 class="text-lg font-bold section-title mb-3">가점 기준</h2>
+                <div class="card p-4 bg-white">
+                    <p class="mb-3">다음 요소에 따라 가점이 부여되어 당첨자가 결정됩니다:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><span class="font-medium">소득수준:</span> 소득이 낮을수록 높은 가점</li>
+                        <li><span class="font-medium">해당 지역 거주 기간:</span> 거주 기간이 길수록 높은 가점</li>
+                        <li><span class="font-medium">자녀수:</span> 자녀가 많을수록 높은 가점</li>
+                        <li><span class="font-medium">청약저축 납입 기간:</span> 납입 기간이 길수록 높은 가점</li>
+                        <li><span class="font-medium">혼인 기간:</span> 혼인 기간이 짧을수록 높은 가점</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h2 class="text-lg font-bold section-title mb-3">유의사항</h2>
+                <div class="card p-4 bg-white">
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>예비신혼부부는 입주 전까지 반드시 혼인 신고를 완료해야 함</li>
+                        <li>특별공급 당첨 시 향후 특별공급(신혼부부, 다자녀, 생애최초 등) 신청이 제한됨</li>
+                        <li>완화된 소득 기준이 적용되는 경우 사전에 동일 단지 내 일반공급 주택과의 가격 차이 확인 필요</li>
+                        <li>특별공급은 1세대 1회 제한이므로 배우자와 중복 신청 불가</li>
+                        <li>당첨자 발표 후 서류 제출 및 소득·자산 심사 과정에서 자격 미달 시 당첨 취소 가능</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h2 class="text-lg font-bold section-title mb-3">자주 묻는 질문</h2>
+                <div class="card bg-white">
+                    <div class="border-b p-4">
+                        <h3 class="font-medium text-blue-600 mb-2">Q1: 예비신혼부부도 신청 가능한가요?</h3>
+                        <p>A: 네, 가능합니다. 청약 신청 시 예비신혼부부임을 밝히고 관련 증빙서류(예식장 계약서 등)를 제출하면 신청 가능합니다. 단, 입주 전까지 반드시 혼인신고를 완료해야 하며, 미완료 시 계약이 해지될 수 있습니다.</p>
+                    </div>
+                    <div class="border-b p-4">
+                        <h3 class="font-medium text-blue-600 mb-2">Q2: 재혼한 경우에도 신혼부부 특별공급을 신청할 수 있나요?</h3>
+                        <p>A: 네, 재혼한 경우에도 현재 혼인 관계가 7년 이내라면 신청 가능합니다. 이전 혼인 기간은 합산하지 않고, 현재 혼인신고일을 기준으로 산정합니다.</p>
+                    </div>
+                    <div class="border-b p-4">
+                        <h3 class="font-medium text-blue-600 mb-2">Q3: 맞벌이의 기준은 무엇인가요?</h3>
+                        <p>A: 부부 모두 소득이 있는 경우를 맞벌이로 인정합니다. 일반적으로 신청자와 배우자 모두 일정 기간(주로 입주자모집공고일 기준 1개월 이상) 근로소득 또는 사업소득이 발생해야 맞벌이로 인정됩니다. 자세한 기준은 해당 입주자모집공고문을 확인하세요.</p>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-blue-600 mb-2">Q4: 소득 기준은 세전인가요, 세후인가요?</h3>
+                        <p>A: 소득 기준은 세전 금액(총소득)입니다. 근로소득의 경우 원천징수영수증의 '총급여액'을 기준으로 산정합니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ad-container">
+                <p class="text-sm text-gray-500 mb-2">광고</p>
+                <div class="h-24 bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-400">728x90 또는 320x100 광고 영역</span>
+                </div>
+            </div>
+
+            <div class="flex justify-between mt-8 mb-4">
+                <a href="#" class="btn-secondary">
+                    <i class="fas fa-arrow-left mr-1"></i> 이전
+                </a>
+                <a href="#" class="btn-primary">
+                    다음 <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+
+            <div class="text-center mb-8">
+                <a href="#" class="btn-secondary">
+                    <i class="fas fa-th-list mr-1"></i> 목록으로
+                </a>
+            </div>
+
+            <div class="bg-blue-50 p-4 rounded-lg mb-8">
+                <h3 class="font-bold text-blue-600 mb-2">관련 정책 살펴보기</h3>
+                <div class="grid grid-cols-2 gap-2">
+                    <a href="#" class="bg-white p-3 rounded shadow-sm text-center text-sm hover:bg-blue-100 transition">신혼부부 전세자금 대출</a>
+                    <a href="#" class="bg-white p-3 rounded shadow-sm text-center text-sm hover:bg-blue-100 transition">신혼부부 주택구입자금 대출</a>
+                    <a href="#" class="bg-white p-3 rounded shadow-sm text-center text-sm hover:bg-blue-100 transition">출산가구 주거 지원</a>
+                    <a href="#" class="bg-white p-3 rounded shadow-sm text-center text-sm hover:bg-blue-100 transition">다자녀 가구 주택 지원</a>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bg-gray-100 p-4 text-center text-sm text-gray-600">
+            <p>© 2025 복지정책 정보 사이트. All rights reserved.</p>
+            <div class="mt-2 space-x-2">
+                <a href="#" class="text-gray-600 hover:text-gray-900">개인정보처리방침</a>
+                <span>|</span>
+                <a href="#" class="text-gray-600 hover:text-gray-900">이용약관</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('hamburgerMenu').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const hamburger = document.getElementById('hamburgerMenu');
+            
+            if (!sidebar.contains(event.target) && !hamburger.contains(event.target) && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
