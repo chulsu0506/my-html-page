@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://infantpolicy.infoarounds.com/sitemap.xml
+
+#DaumWebMasterTool:3c2148fe1b4c3f534cc23e0754de8328fdcbfb7c50a3303ae8c429d6d5e68e43:fkx9gcdOmrj6HoN6FresFw==
