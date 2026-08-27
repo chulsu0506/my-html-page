@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow build and dev assets
+Disallow: /_astro/
+Disallow: /api/
+
+Sitemap: https://infantpolicy.infoarounds.com/sitemap.xml

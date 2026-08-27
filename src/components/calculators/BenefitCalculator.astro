@@ -1,0 +1,195 @@
+---
+---
+
+<div id="benefit-calculator" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-lg shadow-slate-100">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center text-2xl shadow-inner">
+      👶
+    </div>
+    <div>
+      <h2 class="text-xl sm:text-2xl font-bold text-slate-900">
+        2025-2026 육아지원금 원클릭 모의계산기
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-500">
+        출생부터 만 7세까지 부모급여 + 아동수당 + 첫만남이용권 총 수령액을 즉시 계산합니다.
+      </p>
+    </div>
+  </div>
+
+  <!-- Form Inputs -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-5 bg-slate-50 rounded-2xl border border-slate-100 mb-6">
+    <!-- Child Order -->
+    <div>
+      <label class="block text-xs font-bold text-slate-700 mb-2">자녀 출생 순서</label>
+      <div class="grid grid-cols-2 gap-2">
+        <label class="cursor-pointer">
+          <input type="radio" name="childOrder" value="first" checked class="peer sr-only" />
+          <div class="p-3 text-center rounded-xl bg-white border-2 border-slate-200 peer-checked:border-teal-600 peer-checked:bg-teal-50/50 peer-checked:text-teal-900 text-sm font-semibold transition-all">
+            첫째 아이
+          </div>
+        </label>
+        <label class="cursor-pointer">
+          <input type="radio" name="childOrder" value="second_or_more" class="peer sr-only" />
+          <div class="p-3 text-center rounded-xl bg-white border-2 border-slate-200 peer-checked:border-teal-600 peer-checked:bg-teal-50/50 peer-checked:text-teal-900 text-sm font-semibold transition-all">
+            둘째 이상
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Multi birth -->
+    <div>
+      <label class="block text-xs font-bold text-slate-700 mb-2">태아 구분 (단태아 / 쌍둥이)</label>
+      <div class="grid grid-cols-2 gap-2">
+        <label class="cursor-pointer">
+          <input type="radio" name="isMultipleBirth" value="single" checked class="peer sr-only" />
+          <div class="p-3 text-center rounded-xl bg-white border-2 border-slate-200 peer-checked:border-teal-600 peer-checked:bg-teal-50/50 peer-checked:text-teal-900 text-sm font-semibold transition-all">
+            단태아 (1명)
+          </div>
+        </label>
+        <label class="cursor-pointer">
+          <input type="radio" name="isMultipleBirth" value="multiple" class="peer sr-only" />
+          <div class="p-3 text-center rounded-xl bg-white border-2 border-slate-200 peer-checked:border-teal-600 peer-checked:bg-teal-50/50 peer-checked:text-teal-900 text-sm font-semibold transition-all">
+            다태아 (쌍둥이 이상)
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results Box -->
+  <div class="rounded-2xl bg-gradient-to-br from-teal-600 via-emerald-600 to-teal-800 text-white p-6 sm:p-8 shadow-xl shadow-teal-700/20 mb-6">
+    <div class="text-xs sm:text-sm font-medium text-teal-100 flex items-center justify-between">
+      <span>우리 아이 총 예상 지원금 (만 7세까지)</span>
+      <span class="bg-white/20 px-2 py-0.5 rounded-full text-[11px] backdrop-blur-sm">2025-2026 정부 정책 기준</span>
+    </div>
+    
+    <div class="my-4 flex items-baseline gap-2">
+      <span id="total-benefit-amount" class="text-4xl sm:text-5xl font-black tracking-tight text-yellow-300">
+        3,060만원
+      </span>
+      <span class="text-sm font-medium text-teal-100">수령 가능</span>
+    </div>
+
+    <!-- Breakdown Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-white/20 text-xs">
+      <div class="bg-black/15 p-3 rounded-xl backdrop-blur-sm">
+        <div class="text-teal-200 text-[11px]">부모급여 (0~1세)</div>
+        <div id="breakdown-parent" class="font-bold text-sm sm:text-base mt-1 text-white">1,800만원</div>
+        <div class="text-[10px] text-teal-200/80">0세 100만 / 1세 50만</div>
+      </div>
+
+      <div class="bg-black/15 p-3 rounded-xl backdrop-blur-sm">
+        <div class="text-teal-200 text-[11px]">아동수당 (0~7세)</div>
+        <div id="breakdown-child" class="font-bold text-sm sm:text-base mt-1 text-white">960만원</div>
+        <div class="text-[10px] text-teal-200/80">96개월 x 월 10만원</div>
+      </div>
+
+      <div class="bg-black/15 p-3 rounded-xl backdrop-blur-sm">
+        <div class="text-teal-200 text-[11px]">첫만남이용권</div>
+        <div id="breakdown-first" class="font-bold text-sm sm:text-base mt-1 text-white">200만원</div>
+        <div class="text-[10px] text-teal-200/80">국민행복카드 바우처</div>
+      </div>
+
+      <div class="bg-black/15 p-3 rounded-xl backdrop-blur-sm">
+        <div class="text-teal-200 text-[11px]">임신·출산 진료비</div>
+        <div id="breakdown-medical" class="font-bold text-sm sm:text-base mt-1 text-white">100만원</div>
+        <div class="text-[10px] text-teal-200/80">임산부 병원비 바우처</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline Table / Visual -->
+  <div class="border border-slate-200 rounded-2xl p-5 bg-white">
+    <h3 class="text-sm font-bold text-slate-800 mb-3 flex items-center justify-between">
+      <span>📅 시기별 월 수령액 타임라인</span>
+      <span class="text-xs font-normal text-slate-400">계좌 입금 + 바우처 합산</span>
+    </h3>
+    <div class="space-y-2 text-xs">
+      <div class="flex items-center justify-between p-3 bg-teal-50/60 rounded-xl border border-teal-100">
+        <div>
+          <span class="font-bold text-teal-900">출생 초기 (생후 0개월)</span>
+          <p class="text-slate-500 text-[11px]">부모급여 100만 + 아동수당 10만 + 첫만남바우처 200만 + 진료비 100만</p>
+        </div>
+        <div id="timeline-month0" class="text-sm font-extrabold text-teal-700">410만원</div>
+      </div>
+
+      <div class="flex items-center justify-between p-3 bg-slate-50 rounded-xl">
+        <div>
+          <span class="font-bold text-slate-800">만 0세 (생후 1~11개월, 매월)</span>
+          <p class="text-slate-500 text-[11px]">부모급여 100만원 + 아동수당 10만원 현금 입금</p>
+        </div>
+        <div class="text-sm font-bold text-slate-800">월 110만원</div>
+      </div>
+
+      <div class="flex items-center justify-between p-3 bg-slate-50 rounded-xl">
+        <div>
+          <span class="font-bold text-slate-800">만 1세 (생후 12~23개월, 매월)</span>
+          <p class="text-slate-500 text-[11px]">부모급여 50만원 + 아동수당 10만원 현금 입금</p>
+        </div>
+        <div class="text-sm font-bold text-slate-800">월 60만원</div>
+      </div>
+
+      <div class="flex items-center justify-between p-3 bg-slate-50 rounded-xl">
+        <div>
+          <span class="font-bold text-slate-800">만 2세 ~ 만 7세 (생후 24~95개월, 매월)</span>
+          <p class="text-slate-500 text-[11px]">아동수당 10만원 (어린이집/유치원 보육료 전액 무상지원 별도)</p>
+        </div>
+        <div class="text-sm font-bold text-slate-800">월 10만원</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Share & Copy -->
+  <div class="mt-6 flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-100 text-xs">
+    <div class="text-slate-500">
+      💡 지자체별 출산장려금(최대 수백만원)은 거주지에 따라 추가 지급됩니다.
+    </div>
+    <button
+      id="btn-copy-benefit-result"
+      type="button"
+      class="px-4 py-2 bg-slate-900 text-white font-semibold rounded-xl hover:bg-slate-800 transition-colors flex items-center gap-1.5 shadow-sm"
+    >
+      <span>📋</span> 결과 링크 복사하기
+    </button>
+  </div>
+</div>
+
+<script is:inline>
+  function updateBenefitCalculation() {
+    const childOrder = document.querySelector('input[name="childOrder"]:checked')?.value || 'first';
+    const isMultiple = document.querySelector('input[name="isMultipleBirth"]:checked')?.value === 'multiple';
+
+    const medicalAmount = isMultiple ? 140 : 100;
+    const firstEncounterAmount = childOrder === 'first' ? 200 : 300;
+    const parentBenefitAmount = 1800; // 0세 1200만 + 1세 600만
+    const childAllowanceAmount = 960; // 96개월 x 10만
+
+    const total = medicalAmount + firstEncounterAmount + parentBenefitAmount + childAllowanceAmount;
+
+    // Update DOM
+    document.getElementById('total-benefit-amount').innerText = `${total.toLocaleString()}만원`;
+    document.getElementById('breakdown-parent').innerText = `${parentBenefitAmount.toLocaleString()}만원`;
+    document.getElementById('breakdown-child').innerText = `${childAllowanceAmount.toLocaleString()}만원`;
+    document.getElementById('breakdown-first').innerText = `${firstEncounterAmount.toLocaleString()}만원`;
+    document.getElementById('breakdown-medical').innerText = `${medicalAmount.toLocaleString()}만원`;
+
+    const month0Total = medicalAmount + firstEncounterAmount + 100 + 10;
+    document.getElementById('timeline-month0').innerText = `${month0Total.toLocaleString()}만원`;
+  }
+
+  document.querySelectorAll('input[name="childOrder"], input[name="isMultipleBirth"]').forEach(input => {
+    input.addEventListener('change', updateBenefitCalculation);
+  });
+
+  const copyBtn = document.getElementById('btn-copy-benefit-result');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(window.location.href);
+      copyBtn.innerText = '✅ 링크가 복사되었습니다!';
+      setTimeout(() => {
+        copyBtn.innerText = '📋 결과 링크 복사하기';
+      }, 2000);
+    });
+  }
+</script>

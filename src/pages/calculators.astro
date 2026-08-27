@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BenefitCalculator from '../components/calculators/BenefitCalculator.astro';
+import LeavePayCalculator from '../components/calculators/LeavePayCalculator.astro';
+import LoanEligibilityCalculator from '../components/calculators/LoanEligibilityCalculator.astro';
+import CoupangPartnersBox from '../components/CoupangPartnersBox.astro';
+import AdSense from '../components/AdSense.astro';
+---
+
+<BaseLayout
+  title="2025-2026 육아 지원금 & 육아휴직 급여 & 신생아 특례대출 모의계산기 모음"
+  description="부모급여, 아동수당, 첫만남이용권 수당 계산부터 2025-2026 개편 육아휴직 급여 상한액(250만원), 신생아 특례 디딤돌/버팀목 대출 자격 진단까지 한 번에 시뮬레이션하세요."
+  keywords="육아지원금 계산기, 육아휴직 급여 모의계산, 6+6 부모육아휴직제, 신생아 특례 디딤돌 자격, 부모급여 모의계산, 아동수당 계산"
+>
+  <div class="bg-gradient-to-b from-teal-500/10 via-slate-50 to-white py-10 sm:py-14">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-teal-100 text-teal-800 border border-teal-200">
+        🧮 2025-2026 최신 정부 정책 시뮬레이터
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+        대한민국 출산·육아 <span class="text-teal-600">3대 핵심 모의계산기</span>
+      </h1>
+      <p class="text-sm sm:text-base text-slate-600 max-w-xl mx-auto">
+        놓치기 쉬운 정부 지원금과 육아휴직 실수령액, 내 집 마련 대출 자격을 1초 만에 바로 진단해보세요.
+      </p>
+
+      <!-- Quick Jump Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-2 pt-4">
+        <a href="#benefit-calc" class="px-4 py-2 text-xs font-bold bg-teal-600 text-white rounded-xl shadow hover:bg-teal-700 transition-colors">
+          👶 육아지원금 통합 계산기
+        </a>
+        <a href="#leave-calc" class="px-4 py-2 text-xs font-bold bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition-colors">
+          💼 육아휴직 급여 계산기
+        </a>
+        <a href="#loan-calc" class="px-4 py-2 text-xs font-bold bg-cyan-600 text-white rounded-xl shadow hover:bg-cyan-700 transition-colors">
+          🏠 신생아 특례대출 진단기
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 my-10">
+    
+    <!-- AdSense Top -->
+    <AdSense slotId="calc-top-responsive" format="auto" />
+
+    <!-- 1. Benefit Calculator -->
+    <section id="benefit-calc" class="scroll-mt-24">
+      <BenefitCalculator />
+    </section>
+
+    <!-- Coupang Box 1 -->
+    <CoupangPartnersBox themeKey="first-encounter" />
+
+    <!-- 2. Leave Pay Calculator -->
+    <section id="leave-calc" class="scroll-mt-24">
+      <LeavePayCalculator />
+    </section>
+
+    <!-- AdSense Middle -->
+    <AdSense slotId="calc-mid-responsive" format="auto" />
+
+    <!-- 3. Loan Eligibility Calculator -->
+    <section id="loan-calc" class="scroll-mt-24">
+      <LoanEligibilityCalculator />
+    </section>
+
+    <!-- Coupang Box 2 -->
+    <CoupangPartnersBox themeKey="living-care" customTitle="🏠 아이가 있는 가정을 위한 쾌적한 안전 육아템" />
+
+  </div>
+</BaseLayout>

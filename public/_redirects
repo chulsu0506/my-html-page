@@ -1,0 +1,54 @@
+# Cloudflare Pages 301 Redirect Rules for SEO Preservation
+
+/pregnancy_childbirth_landing.html    /pregnancy-childbirth    301
+/infant_rearing_landing.html           /infant-rearing          301
+/childcare_education_landing.html      /childcare-education     301
+/work_family_landing.html              /work-family             301
+/housing_support_landing.html          /housing-support         301
+/multi_child_landing.html              /multi-child             301
+/etc_support_landing.html              /etc-support             301
+
+# Policy Detail Redirects
+/pregnancy_childbirth_benefit_card.html             /policy/benefit-card                     301
+/pregnancy_childbirth_birth_grant.html              /policy/first-encounter-voucher          301
+/pregnancy_childbirth_postnatal_care.html           /policy/postnatal-care                   301
+/pregnancy_childbirth_diaper_formula_support.html   /policy/diaper-formula-support           301
+/pregnancy_childbirth_high_risk_support.html        /policy/high-risk-support                301
+/pregnancy_childbirth_teen_mom_support.html         /policy/teen-mom-support                 301
+
+/infant_rearing_parent_benefit.html                 /policy/parent-benefit                   301
+/infant_rearing_child_allowance.html                /policy/child-allowance                  301
+/infant_rearing_first_encounter_voucher.html        /policy/first-encounter-voucher          301
+/infant_rearing_home_childcare_allowance.html       /policy/home-childcare-allowance         301
+
+/childcare_education_daycare_subsidy.html           /policy/daycare-subsidy                  301
+/childcare_education_kindergarten_fee_support.html  /policy/kindergarten-fee-support         301
+/childcare_education_care_service.html              /policy/care-service                     301
+/childcare_education_cooperative_parenting_center.html /policy/care-service                  301
+
+/work_family_childcare_leave.html                   /policy/childcare-leave                  301
+/work_family_paternity_leave.html                   /policy/paternity-leave                  301
+/work_family_maternity_leave.html                   /policy/maternity-leave                  301
+/work_family_reduced_hours_childcare.html           /policy/reduced-hours-childcare          301
+/work_family_family_care_leave.html                 /policy/childcare-leave                  301
+
+/housing_support_childbirth_family_support.html     /policy/childbirth-family-support        301
+/housing_support_newlywed_special_supply.html       /policy/newlywed-special-supply          301
+/housing_support_newlywed_purchase_loan.html        /policy/childbirth-family-support        301
+/housing_support_newlywed_jeonse_loan.html          /policy/childbirth-family-support        301
+
+/multi_child_special_housing_supply.html            /policy/multi-child-special-housing-supply 301
+/multi_child_tax_reduction_benefits.html            /policy/multi-child-tax-reduction        301
+/multi_child_public_utility_discount.html           /policy/multi-child-public-utility       301
+/multi_child_childrearing_education_support.html    /policy/multi-child-tax-reduction        301
+/multi_child_local_government_support.html          /policy/multi-child-public-utility       301
+/multi_child_housing_loan_benefits.html             /policy/multi-child-special-housing-supply 301
+
+/etc_support_single_parent_child_support.html       /policy/single-parent-child-support      301
+/etc_support_single_parent_other_support.html       /policy/single-parent-child-support      301
+/etc_support_livelihood_benefit.html                /policy/livelihood-benefit               301
+/etc_support_medical_benefit.html                   /policy/livelihood-benefit               301
+/etc_support_housing_benefit.html                   /policy/livelihood-benefit               301
+/etc_support_education_benefit.html                 /policy/livelihood-benefit               301
+/etc_support_next_lower_income_class.html           /policy/livelihood-benefit               301
+/etc_support_emergency_welfare.html                 /policy/livelihood-benefit               301

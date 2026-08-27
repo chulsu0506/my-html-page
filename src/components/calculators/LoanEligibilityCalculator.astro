@@ -1,0 +1,229 @@
+---
+---
+
+<div id="loan-calculator" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-lg shadow-slate-100">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-2xl shadow-inner">
+      🏠
+    </div>
+    <div>
+      <div class="flex items-center gap-2">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900">
+          신생아 특례 디딤돌·버팀목 자격 진단기
+        </h2>
+        <span class="px-2 py-0.5 text-xs font-extrabold bg-cyan-100 text-cyan-800 rounded-full">소득 완화 2억원</span>
+      </div>
+      <p class="text-xs sm:text-sm text-slate-500 mt-0.5">
+        최저 1%대 초저금리 주택구입/전세대출 가능 여부와 금리 구간을 즉시 진단합니다.
+      </p>
+    </div>
+  </div>
+
+  <!-- Form Inputs -->
+  <div class="space-y-4 p-5 bg-slate-50 rounded-2xl border border-slate-100 mb-6">
+    <!-- Loan Type Selection -->
+    <div>
+      <label class="block text-xs font-bold text-slate-700 mb-2">대출 종류 선택</label>
+      <div class="grid grid-cols-2 gap-2">
+        <label class="cursor-pointer">
+          <input type="radio" name="loanType" value="purchase" checked class="peer sr-only" />
+          <div class="p-3 text-center rounded-xl bg-white border-2 border-slate-200 peer-checked:border-cyan-600 peer-checked:bg-cyan-50/50 peer-checked:text-cyan-900 text-sm font-semibold transition-all">
+            신생아 특례 디딤돌 (주택구입)
+          </div>
+        </label>
+        <label class="cursor-pointer">
+          <input type="radio" name="loanType" value="jeonse" class="peer sr-only" />
+          <div class="p-3 text-center rounded-xl bg-white border-2 border-slate-200 peer-checked:border-cyan-600 peer-checked:bg-cyan-50/50 peer-checked:text-cyan-900 text-sm font-semibold transition-all">
+            신생아 특례 버팀목 (전세자금)
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Income & House Price -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-xs font-bold text-slate-700 mb-1.5">
+          부부합산 연소득: <span id="loan-income-label" class="text-cyan-700 font-extrabold">1억원</span>
+        </label>
+        <input
+          type="range"
+          id="loan-income-slider"
+          min="3000"
+          max="25000"
+          step="500"
+          value="10000"
+          class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-cyan-600"
+        />
+        <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+          <span>3천만원</span>
+          <span>1.3억원</span>
+          <span>2억원 (기준)</span>
+          <span>2.5억원</span>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-xs font-bold text-slate-700 mb-1.5">
+          주택 매매가 / 전세보증금: <span id="loan-price-label" class="text-cyan-700 font-extrabold">6억원</span>
+        </label>
+        <input
+          type="range"
+          id="loan-price-slider"
+          min="10000"
+          max="120000"
+          step="2000"
+          value="60000"
+          class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-cyan-600"
+        />
+        <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+          <span>1억원</span>
+          <span>5억원 (전세상한)</span>
+          <span>9억원 (매매상한)</span>
+          <span>12억원</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newborn condition check -->
+    <div class="flex items-center justify-between p-3 bg-white border border-slate-200 rounded-xl">
+      <div>
+        <span class="text-xs font-bold text-slate-800">2년 이내 출산(입양)한 자녀가 있나요?</span>
+        <p class="text-[10px] text-slate-500">2023년 1월 1일 이후 출생아부터 적용</p>
+      </div>
+      <input type="checkbox" id="loan-newborn-check" checked class="w-5 h-5 accent-cyan-600 rounded cursor-pointer" />
+    </div>
+  </div>
+
+  <!-- Results Box -->
+  <div id="loan-result-box" class="rounded-2xl bg-gradient-to-br from-cyan-600 via-teal-600 to-cyan-800 text-white p-6 sm:p-8 shadow-xl shadow-cyan-700/20 mb-6">
+    <div class="text-xs sm:text-sm font-medium text-cyan-100 flex items-center justify-between">
+      <span>진단 결과</span>
+      <span id="loan-status-badge" class="bg-white/20 px-2.5 py-0.5 rounded-full text-xs font-bold backdrop-blur-sm">
+        ✅ 신청 가능
+      </span>
+    </div>
+    
+    <div class="my-4">
+      <div id="loan-title-result" class="text-xl sm:text-2xl font-black tracking-tight text-yellow-300">
+        신생아 특례 디딤돌 대출 대상자입니다!
+      </div>
+      <p id="loan-desc-result" class="text-xs sm:text-sm text-cyan-100 mt-1">
+        최저 연 1.6% 초저금리로 최대 5억원까지 주택구입자금 대출이 가능합니다.
+      </p>
+    </div>
+
+    <!-- Loan details -->
+    <div class="grid grid-cols-2 gap-3 pt-4 border-t border-white/20 text-xs">
+      <div class="bg-black/15 p-3 rounded-xl backdrop-blur-sm">
+        <div class="text-cyan-200 text-[11px]">예상 적용 금리</div>
+        <div id="loan-rate-result" class="font-extrabold text-sm sm:text-base mt-1 text-white">연 1.6% ~ 3.3%</div>
+      </div>
+
+      <div class="bg-black/15 p-3 rounded-xl backdrop-blur-sm">
+        <div class="text-cyan-200 text-[11px]">최대 대출 한도</div>
+        <div id="loan-limit-result" class="font-extrabold text-sm sm:text-base mt-1 text-white">최대 5억원 (LTV 80%)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Requirements List -->
+  <div class="border border-slate-200 rounded-2xl p-5 bg-white text-xs space-y-2">
+    <div class="font-bold text-slate-800 mb-1">📌 필수 확인 자격 요건</div>
+    <div class="flex items-start gap-2 text-slate-600">
+      <span>✓</span>
+      <span><strong>주택 요건:</strong> 주택구입 9억원 이하(전용 85㎡ 이하) / 전세자금 수도권 5억원(지방 4억원) 이하</span>
+    </div>
+    <div class="flex items-start gap-2 text-slate-600">
+      <span>✓</span>
+      <span><strong>자산 기준:</strong> 순자산 디딤돌 4.69억원 이하, 버팀목 3.45억원 이하</span>
+    </div>
+    <div class="flex items-start gap-2 text-slate-600">
+      <span>✓</span>
+      <span><strong>대환 대출:</strong> 기존 주택담보대출 및 전세대출 100% 대환 가능</span>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  function updateLoanCalculation() {
+    const loanType = document.querySelector('input[name="loanType"]:checked')?.value || 'purchase';
+    const income = parseInt(document.getElementById('loan-income-slider').value, 10); // 만원
+    const price = parseInt(document.getElementById('loan-price-slider').value, 10); // 만원
+    const hasNewborn = document.getElementById('loan-newborn-check').checked;
+
+    document.getElementById('loan-income-label').innerText = `${(income / 10000).toFixed(1)}억원`;
+    document.getElementById('loan-price-label').innerText = `${(price / 10000).toFixed(1)}억원`;
+
+    const resultBox = document.getElementById('loan-result-box');
+    const statusBadge = document.getElementById('loan-status-badge');
+    const titleResult = document.getElementById('loan-title-result');
+    const descResult = document.getElementById('loan-desc-result');
+    const rateResult = document.getElementById('loan-rate-result');
+    const limitResult = document.getElementById('loan-limit-result');
+
+    if (!hasNewborn) {
+      statusBadge.innerText = '❌ 신청 불가';
+      statusBadge.className = 'bg-red-500/80 px-2.5 py-0.5 rounded-full text-xs font-bold';
+      titleResult.innerText = '2년 이내 출산 요건 미충족';
+      descResult.innerText = '신생아 특례대출은 신청일 기준 2년 이내 출생아(2023년 이후 출생)가 있는 가구만 가능합니다.';
+      rateResult.innerText = '-';
+      limitResult.innerText = '-';
+      return;
+    }
+
+    if (income > 20000) {
+      statusBadge.innerText = '⚠️ 소득 기준 초과';
+      statusBadge.className = 'bg-amber-500/80 px-2.5 py-0.5 rounded-full text-xs font-bold';
+      titleResult.innerText = '부부합산 소득 2억원 초과';
+      descResult.innerText = '부부합산 소득이 2억원(출산가구 완화안 2.5억 검토 중) 이하이어야 신청 가능합니다.';
+      rateResult.innerText = '-';
+      limitResult.innerText = '-';
+      return;
+    }
+
+    if (loanType === 'purchase') {
+      if (price > 90000) {
+        statusBadge.innerText = '⚠️ 주택가액 초과';
+        statusBadge.className = 'bg-amber-500/80 px-2.5 py-0.5 rounded-full text-xs font-bold';
+        titleResult.innerText = '주택 매매가 9억원 초과';
+        descResult.innerText = '신생아 특례 디딤돌은 대상 주택 가격이 9억원 이하(전용 85㎡ 이하)여야 합니다.';
+        rateResult.innerText = '-';
+        limitResult.innerText = '-';
+        return;
+      }
+
+      statusBadge.innerText = '✅ 신청 가능';
+      statusBadge.className = 'bg-white/20 px-2.5 py-0.5 rounded-full text-xs font-bold';
+      titleResult.innerText = '🎉 신생아 특례 디딤돌 대상자입니다!';
+      descResult.innerText = '최저 연 1.6% 초저금리로 최대 5억원까지 주택구입자금 대출이 가능합니다.';
+      rateResult.innerText = '연 1.6% ~ 3.3% (우대 시 최저 1.2%)';
+      limitResult.innerText = '최대 5억원 (LTV 80%)';
+    } else {
+      if (price > 50000) {
+        statusBadge.innerText = '⚠️ 보증금 초과';
+        statusBadge.className = 'bg-amber-500/80 px-2.5 py-0.5 rounded-full text-xs font-bold';
+        titleResult.innerText = '전세보증금 5억원 초과';
+        descResult.innerText = '신생아 특례 버팀목은 수도권 5억원(지방 4억원) 이하 보증금 주택만 가능합니다.';
+        rateResult.innerText = '-';
+        limitResult.innerText = '-';
+        return;
+      }
+
+      statusBadge.innerText = '✅ 신청 가능';
+      statusBadge.className = 'bg-white/20 px-2.5 py-0.5 rounded-full text-xs font-bold';
+      titleResult.innerText = '🎉 신생아 특례 버팀목 대상자입니다!';
+      descResult.innerText = '최저 연 1.1% 초저금리로 최대 3억원까지 전세자금 대출이 가능합니다.';
+      rateResult.innerText = '연 1.1% ~ 3.0%';
+      limitResult.innerText = '최대 3억원 (보증금 80% 이내)';
+    }
+  }
+
+  document.querySelectorAll('input[name="loanType"]').forEach(r => r.addEventListener('change', updateLoanCalculation));
+  document.getElementById('loan-income-slider').addEventListener('input', updateLoanCalculation);
+  document.getElementById('loan-price-slider').addEventListener('input', updateLoanCalculation);
+  document.getElementById('loan-newborn-check').addEventListener('change', updateLoanCalculation);
+
+  // Initialize
+  updateLoanCalculation();
+</script>

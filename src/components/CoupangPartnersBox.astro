@@ -1,0 +1,74 @@
+---
+import { affiliateThemes, FTC_DISCLOSURE } from '../data/affiliates';
+
+export interface Props {
+  themeKey?: string;
+  customTitle?: string;
+}
+
+const { themeKey = "first-encounter", customTitle } = Astro.props;
+const currentTheme = affiliateThemes[themeKey] || affiliateThemes["first-encounter"];
+---
+
+<div class="my-8 rounded-2xl bg-gradient-to-br from-amber-50/70 via-orange-50/40 to-yellow-50/60 p-5 sm:p-7 border border-amber-200/80 shadow-sm">
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-amber-200/60">
+    <div>
+      <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-200/80 text-amber-900 mb-1.5">
+        <span>✨</span> {currentTheme.badge}
+      </div>
+      <h3 class="text-base sm:text-lg font-bold text-slate-900">
+        {customTitle || currentTheme.title}
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 mt-0.5">
+        {currentTheme.subtitle}
+      </p>
+    </div>
+  </div>
+
+  <p class="text-xs text-amber-900/80 bg-amber-100/50 p-2.5 rounded-lg my-4 leading-relaxed font-medium">
+    💡 <span class="font-bold">이용 꿀팁:</span> {currentTheme.reason}
+  </p>
+
+  <!-- Product Cards Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 my-4">
+    {currentTheme.products.map((item) => (
+      <a
+        href={item.defaultCoupangUrl}
+        target="_blank"
+        rel="noopener noreferrer sponsored"
+        class="group flex flex-col justify-between p-4 bg-white rounded-xl border border-amber-100 hover:border-amber-400 hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500"
+      >
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-1.5">
+            <span class="text-[11px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md">
+              {item.categoryTag}
+            </span>
+            {item.badge && (
+              <span class="text-[10px] font-bold text-rose-600 bg-rose-50 px-1.5 py-0.5 rounded">
+                {item.badge}
+              </span>
+            )}
+          </div>
+          <h4 class="text-sm font-bold text-slate-900 group-hover:text-amber-800 transition-colors line-clamp-1">
+            {item.name}
+          </h4>
+          <p class="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+            {item.description}
+          </p>
+        </div>
+
+        <div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-[11px] font-medium text-slate-400">쿠팡 로켓배송 확인</span>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-amber-600 group-hover:translate-x-0.5 transition-transform">
+            상품 보러가기 ➔
+          </span>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <!-- FTC Disclosure -->
+  <div class="pt-3 border-t border-amber-200/50 text-[11px] text-slate-500 text-center leading-relaxed">
+    {FTC_DISCLOSURE}
+  </div>
+</div>

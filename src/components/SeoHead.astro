@@ -1,0 +1,104 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+  schemaJson?: any[];
+  publishedTime?: string;
+}
+
+const {
+  title,
+  description,
+  keywords = "2025 육아정책, 2026 육아정책, 부모급여, 아동수당, 첫만남이용권, 육아휴직급여 인상, 신생아특례대출, 정부지원금 계산기",
+  ogImage = "https://infantpolicy.infoarounds.com/images/og_main_image.png",
+  canonicalUrl = Astro.url.href,
+  schemaJson = [],
+  publishedTime = "2025-08-01T00:00:00+09:00"
+} = Astro.props;
+
+const siteUrl = "https://infantpolicy.infoarounds.com";
+
+// Base Website Schema
+const defaultWebsiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "대한민국 육아정책 정보센터",
+  "alternateName": "2025-2026 임신·출산·육아 지원 총정리",
+  "url": siteUrl,
+  "inLanguage": "ko-KR",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": `${siteUrl}/search?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const allSchemas = [defaultWebsiteSchema, ...schemaJson];
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="육아정책 정보센터" />
+
+<!-- Title & Description -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Open Graph / Facebook / Kakao -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="2025-2026 대한민국 육아정책 모음집" />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="ko_KR" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/images/favicon.png" />
+<link rel="apple-touch-icon" href="/images/favicon.png" />
+
+<!-- Google AdSense -->
+<script
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6067163195544027"
+  crossorigin="anonymous"
+></script>
+
+<!-- Google Analytics 4 (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FR526LPZ04"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FR526LPZ04');
+</script>
+
+<!-- Preconnect & Fonts -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link
+  rel="stylesheet"
+  as="style"
+  crossorigin
+  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+/>
+
+<!-- Claude-SEO Structured Data (JSON-LD) -->
+{allSchemas.map((schema) => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}
