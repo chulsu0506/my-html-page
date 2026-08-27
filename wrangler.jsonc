@@ -1,0 +1,8 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "my-html-page",
+  "compatibility_date": "2025-08-01",
+  "assets": {
+    "directory": "./dist"
+  }
+}
