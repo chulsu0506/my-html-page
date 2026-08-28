@@ -141,8 +141,8 @@ const schemas = [govServiceSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema]
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
     
-    <!-- Top AdSense -->
-    <AdSense slotId={`policy-${policy.slug}-top`} format="auto" />
+    <!-- Top Golden AdSense Slot -->
+    <AdSense slotId="2752528052" format="auto" />
 
     <!-- Section 1: Target & Eligibility -->
     <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm">
@@ -180,12 +180,15 @@ const schemas = [govServiceSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema]
       <ul class="space-y-2.5 text-xs sm:text-sm text-slate-700">
         {policy.benefits.map((item) => (
           <li class="flex items-start gap-2.5">
-            <span class="text-amber-600 font-bold mt-0.5">➔</span>
+            <span class="text-amber-600 font-bold mt-0.5">★</span>
             <span>{item}</span>
           </li>
         ))}
       </ul>
     </section>
+
+    <!-- Middle Golden AdSense Slot -->
+    <AdSense slotId="2752528052" format="auto" />
 
     <!-- Coupang Partners Curation Slot -->
     <CoupangPartnersBox themeKey={policy.affiliateThemeKey || "first-encounter"} />
