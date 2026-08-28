@@ -6,16 +6,16 @@ export interface Props {
 }
 
 const {
-  slotId = "default-slot",
+  slotId = "2752528052", // infantpolicy 전용 공식 디스플레이 광고 슬롯 ID
   format = "auto",
   className = "my-6"
 } = Astro.props;
 ---
 
 <div class={`adsense-container w-full overflow-hidden text-center ${className}`}>
-  <!-- Google AdSense Responsive Unit -->
+  <!-- infantpolicy Real AdSense Display Unit -->
   <ins
-    class="adsbygoogle block w-full text-center"
+    class="adsbygoogle"
     style="display:block"
     data-ad-client="ca-pub-6067163195544027"
     data-ad-slot={slotId}
