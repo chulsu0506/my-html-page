@@ -3,31 +3,26 @@ export interface Props {
   slotId?: string;
   format?: 'auto' | 'fluid' | 'rectangle' | 'horizontal';
   className?: string;
-  label?: string;
 }
 
 const {
   slotId = "default-slot",
   format = "auto",
-  className = "my-6",
-  label = "광고"
+  className = "my-6"
 } = Astro.props;
 ---
 
-<div class={`adsense-wrapper w-full overflow-hidden text-center ${className}`}>
-  <div class="text-[10px] text-slate-400 uppercase tracking-wider mb-1 font-mono">{label}</div>
-  <div class="min-h-[100px] sm:min-h-[120px] bg-slate-50/50 border border-slate-100 rounded-xl p-2 flex items-center justify-center">
-    <!-- Google AdSense Unit -->
-    <ins
-      class="adsbygoogle"
-      style="display:block"
-      data-ad-client="ca-pub-6067163195544027"
-      data-ad-slot={slotId}
-      data-ad-format={format}
-      data-full-width-responsive="true"
-    ></ins>
-    <script is:inline>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
+<div class={`adsense-container w-full overflow-hidden text-center ${className}`}>
+  <!-- Google AdSense Responsive Unit -->
+  <ins
+    class="adsbygoogle block w-full text-center"
+    style="display:block"
+    data-ad-client="ca-pub-6067163195544027"
+    data-ad-slot={slotId}
+    data-ad-format={format}
+    data-full-width-responsive="true"
+  ></ins>
+  <script is:inline>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
 </div>
