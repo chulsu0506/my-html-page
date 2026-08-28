@@ -65,7 +65,7 @@ export const policies: PolicyDetail[] = [
     ],
     officialUrl: "https://www.nhis.or.kr",
     officialOrg: "보건복지부 / 국민건강보험공단",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     affiliateThemeKey: "pregnancy-care",
     faqs: [
       {
@@ -118,7 +118,7 @@ export const policies: PolicyDetail[] = [
     ],
     officialUrl: "https://www.bokjiro.go.kr",
     officialOrg: "보건복지부",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     affiliateThemeKey: "first-encounter",
     faqs: [
       {
@@ -165,7 +165,7 @@ export const policies: PolicyDetail[] = [
     ],
     officialUrl: "https://www.socialservice.or.kr",
     officialOrg: "보건복지부 / 사회서비스전자바우처",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     affiliateThemeKey: "pregnancy-care",
     faqs: [
       {
@@ -208,7 +208,7 @@ export const policies: PolicyDetail[] = [
     ],
     officialUrl: "https://www.bokjiro.go.kr",
     officialOrg: "보건복지부",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     affiliateThemeKey: "diaper-formula",
     faqs: [
       {
@@ -250,7 +250,7 @@ export const policies: PolicyDetail[] = [
     ],
     officialUrl: "https://www.e-health.go.kr",
     officialOrg: "보건복지부",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     affiliateThemeKey: "pregnancy-care",
     faqs: [
       {
@@ -289,7 +289,7 @@ export const policies: PolicyDetail[] = [
     ],
     officialUrl: "https://www.socialservice.or.kr",
     officialOrg: "보건복지부",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
 
@@ -299,7 +299,7 @@ export const policies: PolicyDetail[] = [
     oldFileName: "infant_rearing_parent_benefit.html",
     categorySlug: "infant-rearing",
     categoryName: "영아·유아 양육 지원",
-    title: "2025-2026 부모급여 (만 0세 월 100만, 만 1세 월 50만 현금 지원)",
+    title: "2026-2027 부모급여 (만 0세 월 100만, 만 1세 월 50만 현금 지원)",
     shortTitle: "부모급여 (만0~1세)",
     summary: "생후 0~23개월 영아를 양육하는 부모에게 매월 최대 100만원의 현금을 지급하여 출산 초기 양육 부담을 획기적으로 덜어줍니다.",
     targetAudience: "만 0세(0~11개월) 및 만 1세(12~23개월) 아동 양육 가구",
@@ -329,7 +329,7 @@ export const policies: PolicyDetail[] = [
     ],
     officialUrl: "https://www.bokjiro.go.kr",
     officialOrg: "보건복지부",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     affiliateThemeKey: "diaper-formula",
     faqs: [
       {
@@ -375,7 +375,7 @@ export const policies: PolicyDetail[] = [
     ],
     officialUrl: "https://www.bokjiro.go.kr",
     officialOrg: "보건복지부",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     affiliateThemeKey: "care-play",
     faqs: [
       {
@@ -414,7 +414,7 @@ export const policies: PolicyDetail[] = [
     ],
     officialUrl: "https://www.bokjiro.go.kr",
     officialOrg: "보건복지부",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
 
@@ -424,7 +424,7 @@ export const policies: PolicyDetail[] = [
     oldFileName: "work_family_childcare_leave.html",
     categorySlug: "work-family",
     categoryName: "일·가정 양립 지원",
-    title: "2025-2026 육아휴직 급여 대폭 개편 (월 최대 250만원 인상 및 6+6제)",
+    title: "2026-2027 육아휴직 급여 대폭 개편 (월 최대 250만원 인상 및 6+6제)",
     shortTitle: "육아휴직 급여 (최대 250만)",
     summary: "2025년부터 육아휴직 급여 상한액이 월 최대 250만원으로 대폭 인상되었으며, 부모가 함께 쓰는 6+6 부모육아휴직제는 최대 450만원까지 지원됩니다.",
     targetAudience: "만 8세 이하 또는 초등 2학년 이하 자녀를 둔 고용보험 가입 근로자",
@@ -455,7 +455,7 @@ export const policies: PolicyDetail[] = [
     ],
     officialUrl: "https://www.work24.go.kr",
     officialOrg: "고용노동부",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     affiliateThemeKey: "care-play",
     faqs: [
       {
@@ -502,7 +502,7 @@ export const policies: PolicyDetail[] = [
     ],
     officialUrl: "https://www.work24.go.kr",
     officialOrg: "고용노동부",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: [
       {
         question: "20일을 한 번에 다 써야 하나요?",
@@ -541,7 +541,7 @@ export const policies: PolicyDetail[] = [
     ],
     officialUrl: "https://www.work24.go.kr",
     officialOrg: "고용노동부",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
   {
@@ -573,7 +573,7 @@ export const policies: PolicyDetail[] = [
     ],
     officialUrl: "https://www.work24.go.kr",
     officialOrg: "고용노동부",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
 
@@ -611,7 +611,7 @@ export const policies: PolicyDetail[] = [
     ],
     officialUrl: "https://www.childcare.go.kr",
     officialOrg: "보건복지부 / 교육부 (아이사랑)",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     affiliateThemeKey: "diaper-formula",
     faqs: [
       {
@@ -642,7 +642,7 @@ export const policies: PolicyDetail[] = [
     requiredDocuments: ["신청인 신분증"],
     officialUrl: "https://e-childschoolng.moe.go.kr",
     officialOrg: "교육부 / e-유치원",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
   {
@@ -672,7 +672,7 @@ export const policies: PolicyDetail[] = [
     requiredDocuments: ["양육공백 입증서류 (재직증명서 등)", "소득증빙 서류"],
     officialUrl: "https://www.idolbom.go.kr",
     officialOrg: "여성가족부",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     affiliateThemeKey: "living-care",
     faqs: []
   },
@@ -683,7 +683,7 @@ export const policies: PolicyDetail[] = [
     oldFileName: "housing_support_childbirth_family_support.html",
     categorySlug: "housing-support",
     categoryName: "신혼부부·출산가구 주거 지원",
-    title: "2025-2026 신생아 특례 디딤돌·버팀목 대출 (소득요건 2억원 완화)",
+    title: "2026-2027 신생아 특례 디딤돌·버팀목 대출 (소득요건 2억원 완화)",
     shortTitle: "신생아 특례 대출",
     summary: "2년 이내 출산한 무주택 가구에게 최저 1%대 초저금리로 주택 구입자금(최대 5억원) 및 전세자금(최대 3억원)을 지원합니다.",
     targetAudience: "대출 신청일 기준 2년 이내 출산(입양)한 무주택 세대주",
@@ -711,7 +711,7 @@ export const policies: PolicyDetail[] = [
     ],
     officialUrl: "https://nhuf.molit.go.kr",
     officialOrg: "국토교통부 / 주택도시기금",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: [
       {
         question: "기존에 받은 일반 주택담보대출이나 전세대출을 신생아 특례로 대환할 수 있나요?",
@@ -745,7 +745,7 @@ export const policies: PolicyDetail[] = [
     requiredDocuments: ["주민등록등본, 가족관계증명서, 혼인관계증명서"],
     officialUrl: "https://www.applyhome.co.kr",
     officialOrg: "국토교통부 / 한국부동산원 청약홈",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
 
@@ -774,7 +774,7 @@ export const policies: PolicyDetail[] = [
     requiredDocuments: ["가족관계증명서(상세), 주민등록등본"],
     officialUrl: "https://www.applyhome.co.kr",
     officialOrg: "국토교통부",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
   {
@@ -799,7 +799,7 @@ export const policies: PolicyDetail[] = [
     requiredDocuments: ["자동차 등록증, 가족관계증명서, 감면 신청서"],
     officialUrl: "https://www.wetax.go.kr",
     officialOrg: "행정안전부 / 위택스",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
   {
@@ -824,7 +824,7 @@ export const policies: PolicyDetail[] = [
     requiredDocuments: ["주민등록등본, 전기/가스 고객번호"],
     officialUrl: "https://cyber.kepco.co.kr",
     officialOrg: "한국전력공사 / 산업통상자원부",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
 
@@ -855,7 +855,7 @@ export const policies: PolicyDetail[] = [
     requiredDocuments: ["소득재산신고서, 금융정보제공동의서, 가족관계증명서"],
     officialUrl: "https://www.bokjiro.go.kr",
     officialOrg: "여성가족부",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
   {
@@ -882,7 +882,7 @@ export const policies: PolicyDetail[] = [
     requiredDocuments: ["사회보장급여 신청서, 금융정보제공동의서, 임대차계약서 등"],
     officialUrl: "https://www.bokjiro.go.kr",
     officialOrg: "보건복지부",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
   {
@@ -910,7 +910,7 @@ export const policies: PolicyDetail[] = [
     requiredDocuments: ["신분증, 소득재산신고서, 진단서"],
     officialUrl: "https://www.bokjiro.go.kr",
     officialOrg: "보건복지부 / 국민건강보험공단",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
   {
@@ -934,7 +934,7 @@ export const policies: PolicyDetail[] = [
     requiredDocuments: ["임대차계약서 사본, 통장 사본"],
     officialUrl: "https://www.myhome.go.kr",
     officialOrg: "국토교통부 / 마이홈",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
   {
@@ -959,7 +959,7 @@ export const policies: PolicyDetail[] = [
     requiredDocuments: ["신청서, 소득증빙서류"],
     officialUrl: "https://www.bokjiro.go.kr",
     officialOrg: "교육부 / 한국장학재단",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
   {
@@ -984,7 +984,7 @@ export const policies: PolicyDetail[] = [
     requiredDocuments: ["사회보장급여 신청서"],
     officialUrl: "https://www.bokjiro.go.kr",
     officialOrg: "보건복지부",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
   {
@@ -1013,7 +1013,7 @@ export const policies: PolicyDetail[] = [
     requiredDocuments: ["긴급지원 신청서, 위기상황 증빙자료(진단서, 퇴직증명 등)"],
     officialUrl: "https://www.129.go.kr",
     officialOrg: "보건복지부 / 129 콜센터",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
   {
@@ -1034,7 +1034,7 @@ export const policies: PolicyDetail[] = [
     requiredDocuments: ["매매계약서, 주민등록등본, 소득증빙서류"],
     officialUrl: "https://nhuf.molit.go.kr",
     officialOrg: "국토교통부 / 주택도시기금",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
   {
@@ -1055,7 +1055,7 @@ export const policies: PolicyDetail[] = [
     requiredDocuments: ["임대차계약서, 주민등록등본, 소득서류"],
     officialUrl: "https://nhuf.molit.go.kr",
     officialOrg: "국토교통부 / 주택도시기금",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
   {
@@ -1076,7 +1076,7 @@ export const policies: PolicyDetail[] = [
     requiredDocuments: ["가족관계증명서, 진단서 또는 소견서"],
     officialUrl: "https://www.work24.go.kr",
     officialOrg: "고용노동부",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   },
   {
@@ -1100,7 +1100,7 @@ export const policies: PolicyDetail[] = [
     requiredDocuments: ["가족관계증명서(상세)"],
     officialUrl: "https://www.kosaf.go.kr",
     officialOrg: "교육부 / 한국장학재단",
-    lastVerifiedDate: "2025년 8월 기준",
+    lastVerifiedDate: "2026년 최신 기준",
     faqs: []
   }
 ];

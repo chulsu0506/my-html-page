@@ -12,11 +12,11 @@ export interface Props {
 const {
   title,
   description,
-  keywords = "2025 육아정책, 2026 육아정책, 부모급여, 아동수당, 첫만남이용권, 육아휴직급여 인상, 신생아특례대출, 정부지원금 계산기",
+  keywords = "2026 육아정책, 2027 육아정책, 부모급여, 아동수당, 첫만남이용권, 육아휴직급여 인상, 신생아특례대출, 정부지원금 계산기",
   ogImage = "https://infantpolicy.infoarounds.com/images/og_main_image.png",
   canonicalUrl = Astro.url.href,
   schemaJson = [],
-  publishedTime = "2025-08-01T00:00:00+09:00"
+  publishedTime = "2026-08-28T00:00:00+09:00"
 } = Astro.props;
 
 const siteUrl = "https://infantpolicy.infoarounds.com";
@@ -26,7 +26,7 @@ const defaultWebsiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "대한민국 육아정책 정보센터",
-  "alternateName": "2025-2026 임신·출산·육아 지원 총정리",
+  "alternateName": "2026-2027 임신·출산·육아 지원 총정리",
   "url": siteUrl,
   "inLanguage": "ko-KR",
   "potentialAction": {
@@ -54,7 +54,7 @@ const allSchemas = [defaultWebsiteSchema, ...schemaJson];
 
 <!-- Open Graph / Facebook / Kakao -->
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="2025-2026 대한민국 육아정책 모음집" />
+<meta property="og:site_name" content="2026-2027 대한민국 육아정책 모음집" />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />

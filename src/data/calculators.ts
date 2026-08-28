@@ -1,4 +1,4 @@
-// 2025-2026 대한민국 최신 정책 기준 계산식
+// 2026-2027 대한민국 최신 정책 기준 계산식
 
 export interface BenefitTimelineItem {
   ageLabel: string;

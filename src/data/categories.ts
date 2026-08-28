@@ -50,7 +50,7 @@ export const categories: Category[] = [
     slug: "work-family",
     oldLandingFile: "work_family_landing.html",
     icon: "Briefcase",
-    tagline: "2025-2026 대폭 개편된 육아휴직 & 출산휴가",
+    tagline: "2026-2027 대폭 개편된 육아휴직 & 출산휴가",
     description: "월 최대 250만원으로 인상된 육아휴직 급여, 6+6 부모육아휴직제, 배우자 출산휴가 20일 확대, 육아기 근로시간 단축 급여를 안내합니다.",
     color: "from-blue-500 to-indigo-500",
     badgeBg: "bg-blue-50 text-blue-700 border-blue-200"
