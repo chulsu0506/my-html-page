@@ -1,6 +1,12 @@
 ---
 import { categories } from '../data/categories';
 import { FTC_DISCLOSURE } from '../data/affiliates';
+
+export interface Props {
+  showAffiliateDisclosure?: boolean;
+}
+
+const { showAffiliateDisclosure = true } = Astro.props;
 ---
 
 <footer class="bg-slate-900 text-slate-400 text-sm border-t border-slate-800 mt-20">
@@ -24,7 +30,7 @@ import { FTC_DISCLOSURE } from '../data/affiliates';
             본 웹사이트의 모든 정보는 참고용으로 제공되며, 정부 법령 및 지자체 조례 개정에 따라 실제 지원 기준이 상이할 수 있습니다. 최종 지원 자격 및 신청은 소관 정부 기관의 공식 안내를 확인하시기 바랍니다.
           </p>
         </div>
-        <p class="text-xs text-slate-500">{FTC_DISCLOSURE}</p>
+        {showAffiliateDisclosure && <p class="text-xs text-slate-500">{FTC_DISCLOSURE}</p>}
       </div>
 
       <!-- Category Quick Links -->

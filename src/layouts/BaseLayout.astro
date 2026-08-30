@@ -11,6 +11,7 @@ export interface Props {
   ogImage?: string;
   canonicalUrl?: string;
   schemaJson?: any[];
+  showAffiliateDisclosure?: boolean;
 }
 
 const {
@@ -19,7 +20,8 @@ const {
   keywords,
   ogImage,
   canonicalUrl,
-  schemaJson
+  schemaJson,
+  showAffiliateDisclosure = true
 } = Astro.props;
 ---
 
@@ -40,7 +42,7 @@ const {
     <main class="flex-grow">
       <slot />
     </main>
-    <Footer />
+    <Footer showAffiliateDisclosure={showAffiliateDisclosure} />
 
     <!-- AdSense Safe Initializer Fallback -->
     <script is:inline>

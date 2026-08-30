@@ -1,0 +1,257 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AdSense from '../../components/AdSense.astro';
+
+const officialUrl = 'https://nip.kdca.go.kr/irhp/infm/goVcntInfo.do?menuCd=134&menuLv=1';
+const canonicalUrl = 'https://infantpolicy.infoarounds.com/guides/flu-vaccine-2026';
+
+const faqItems = [
+  {
+    question: '2026년 어린이 독감 무료접종은 몇 살까지인가요?',
+    answer: '2026-2027절기에는 생후 6개월부터 14세 어린이 가운데 2012년 1월 1일부터 2026년 8월 31일까지 출생한 어린이가 지원 대상입니다. 접종일에는 생후 6개월이 지나야 합니다.'
+  },
+  {
+    question: '어린이는 모두 같은 날 시작하나요?',
+    answer: '아닙니다. 2회 접종 대상 어린이는 2026년 9월 21일, 1회 접종 대상 어린이는 9월 28일부터 시작합니다.'
+  },
+  {
+    question: '어린이 2회 접종 대상은 누구인가요?',
+    answer: '생후 6개월부터 9세 미만 어린이 중 독감 예방접종을 처음 받거나 이전 접종력을 모르는 경우, 또는 2026년 6월 30일까지 독감 백신을 총 1회만 접종한 경우입니다. 최종 접종 횟수는 예진의사와 확인해야 합니다.'
+  },
+  {
+    question: '임신부는 임신 몇 주부터 무료접종을 받을 수 있나요?',
+    answer: '질병관리청 안내상 임신 주수와 관계없이 임신이 확인된 임신부가 대상이며, 산모수첩이나 임신확인서 등을 제시해야 합니다.'
+  },
+  {
+    question: '주소지 보건소에서만 접종해야 하나요?',
+    answer: '주소지와 관계없이 전국 위탁의료기관과 보건소에서 받을 수 있습니다. 방문 전에 해당 기관의 백신 보유 여부와 접종 가능 시간을 확인하세요.'
+  }
+];
+
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: '2026-2027 어린이·임신부 독감 무료접종 대상과 시작일',
+    url: canonicalUrl,
+    description: '출생일과 이전 독감 접종력을 기준으로 무료접종 대상과 시작일을 확인하는 공식 일정 가이드',
+    datePublished: '2026-08-30',
+    dateModified: '2026-08-30',
+    isBasedOn: officialUrl,
+    about: {
+      '@type': 'GovernmentService',
+      name: '2026-2027절기 인플루엔자 국가예방접종 사업',
+      provider: {
+        '@type': 'GovernmentOrganization',
+        name: '질병관리청',
+        url: 'https://www.kdca.go.kr'
+      }
+    }
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer }
+    }))
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '홈', item: 'https://infantpolicy.infoarounds.com/' },
+      { '@type': 'ListItem', position: 2, name: '육아 생활 가이드', item: 'https://infantpolicy.infoarounds.com/guides/flu-vaccine-2026' },
+      { '@type': 'ListItem', position: 3, name: '2026 독감 무료접종', item: canonicalUrl }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="2026 독감 무료접종 대상·시작일 확인｜어린이 14세·임신부"
+  description="2026-2027 어린이·임신부 독감 무료접종 일정입니다. 출생일과 이전 접종력을 입력해 1회·2회 접종 시작일을 확인하고 위탁의료기관 찾는 방법을 알아보세요."
+  keywords="2026 독감 무료접종, 어린이 독감 접종, 임신부 독감 예방접종, 14세 독감 무료, 독감 접종 병원 찾기, 2026 인플루엔자 예방접종"
+  canonicalUrl={canonicalUrl}
+  schemaJson={schemas}
+  showAffiliateDisclosure={false}
+>
+  <section class="relative overflow-hidden border-b border-teal-100 bg-gradient-to-br from-teal-600 via-emerald-600 to-cyan-700 text-white">
+    <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle at 20% 30%,white 0,transparent 34%),radial-gradient(circle at 82% 65%,white 0,transparent 28%)"></div>
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+      <nav class="flex items-center gap-2 text-xs text-teal-50/90 mb-5" aria-label="현재 위치">
+        <a href="/" class="hover:text-white">홈</a><span>›</span><span>생활 가이드</span><span>›</span><span class="font-bold text-white">독감 무료접종</span>
+      </nav>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="px-3 py-1 rounded-full bg-white/15 border border-white/20 text-xs font-bold">질병관리청 2026.08.25 기준</span>
+        <span class="px-3 py-1 rounded-full bg-amber-300 text-amber-950 text-xs font-black">올해 14세까지 확대</span>
+      </div>
+      <h1 class="max-w-4xl text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">2026-2027 어린이·임신부<br class="hidden sm:block" /> 독감 무료접종 대상과 시작일</h1>
+      <p class="max-w-3xl mt-5 text-sm sm:text-lg text-teal-50 leading-relaxed">생년월일과 이전 접종력을 확인하면 우리 아이의 무료접종 대상 여부와 가장 빠른 접종 시작일을 알 수 있습니다. 임신부 일정과 위탁의료기관 방문 전 준비물도 함께 정리했습니다.</p>
+    </div>
+  </section>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-8">
+    <AdSense slotId="2752528052" format="auto" />
+
+    <section class="grid lg:grid-cols-[1.15fr_.85fr] gap-6 items-start">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-teal-200 shadow-xl shadow-teal-900/5">
+        <div class="flex items-center justify-between gap-3 mb-5">
+          <div>
+            <span class="text-xs font-black text-teal-700 uppercase tracking-wider">대상·시작일 간편 확인</span>
+            <h2 class="text-2xl font-black text-slate-900 mt-1">아이 접종일 확인하기</h2>
+          </div>
+          <span class="w-11 h-11 rounded-2xl bg-teal-50 flex items-center justify-center text-xl" aria-hidden="true">🗓️</span>
+        </div>
+
+        <form id="flu-checker" class="space-y-4">
+          <label class="block">
+            <span class="block text-sm font-bold text-slate-800 mb-1.5">아이 생년월일</span>
+            <input id="child-birthdate" name="birthdate" type="date" min="2010-01-01" max="2026-08-31" required class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-base focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none" />
+          </label>
+          <label class="block">
+            <span class="block text-sm font-bold text-slate-800 mb-1.5">2026년 6월 30일까지 독감 접종력</span>
+            <select id="flu-history" name="history" required class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none">
+              <option value="">선택하세요</option>
+              <option value="none-or-unknown">처음 접종하거나 이전 기록을 모름</option>
+              <option value="one">지금까지 총 1회 접종</option>
+              <option value="two-plus">지금까지 총 2회 이상 접종</option>
+            </select>
+          </label>
+          <button type="submit" class="w-full rounded-2xl bg-teal-600 hover:bg-teal-700 text-white font-black py-3.5 shadow-lg shadow-teal-600/20 transition-colors">무료접종 시작일 확인</button>
+        </form>
+
+        <div id="flu-result" class="hidden mt-5 rounded-2xl border p-5" role="status" aria-live="polite"></div>
+        <p class="mt-4 text-[11px] leading-relaxed text-slate-500">이 확인기는 질병관리청의 출생일·접종력 기준을 보기 쉽게 적용한 안내 도구입니다. 생후 6개월 도달일과 건강 상태에 따라 일정이 달라질 수 있으므로 최종 접종 횟수와 날짜는 예진의사에게 확인하세요.</p>
+      </div>
+
+      <aside class="space-y-4">
+        <div class="rounded-3xl bg-slate-900 text-white p-6 shadow-xl">
+          <span class="text-xs font-black text-teal-300">핵심 일정</span>
+          <div class="mt-4 space-y-4">
+            <div class="flex gap-3"><span class="shrink-0 px-2.5 py-1 rounded-lg bg-teal-500 text-xs font-black h-fit">9.21</span><div><strong class="block text-sm">2회 접종 어린이·임신부</strong><span class="text-xs text-slate-300">2027년 4월 30일까지</span></div></div>
+            <div class="flex gap-3"><span class="shrink-0 px-2.5 py-1 rounded-lg bg-cyan-500 text-xs font-black h-fit">9.28</span><div><strong class="block text-sm">1회 접종 어린이</strong><span class="text-xs text-slate-300">2027년 4월 30일까지</span></div></div>
+            <div class="flex gap-3"><span class="shrink-0 px-2.5 py-1 rounded-lg bg-amber-400 text-amber-950 text-xs font-black h-fit">10월</span><div><strong class="block text-sm">65세 이상 순차 시작</strong><span class="text-xs text-slate-300">75세 이상부터 연령대별 진행</span></div></div>
+          </div>
+        </div>
+
+        <div class="rounded-3xl bg-amber-50 border border-amber-200 p-6">
+          <strong class="block text-amber-950">임신부 준비물</strong>
+          <ul class="mt-3 space-y-2 text-sm text-amber-950/80">
+            <li>• 산모수첩 또는 임신확인서</li>
+            <li>• 본인 확인이 가능한 신분증</li>
+            <li>• 방문 전 백신 보유·접종시간 확인</li>
+          </ul>
+          <p class="mt-3 text-xs text-amber-900">임신 주수와 관계없이 지원 대상입니다.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+      <div class="flex items-center gap-3 mb-6"><span class="w-9 h-9 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center font-black">1</span><h2 class="text-xl sm:text-2xl font-black text-slate-900">2026 독감 무료접종 대상</h2></div>
+      <div class="overflow-x-auto rounded-2xl border border-slate-200">
+        <table class="w-full min-w-[680px] text-sm">
+          <thead class="bg-teal-50 text-teal-950"><tr><th class="p-4 text-left">대상</th><th class="p-4 text-left">출생·자격 기준</th><th class="p-4 text-left">접종 시작</th></tr></thead>
+          <tbody class="divide-y divide-slate-100 text-slate-700">
+            <tr><td class="p-4 font-bold">어린이 2회 접종</td><td class="p-4">생후 6개월~9세 미만 중 처음·기록 모름·총 1회 접종</td><td class="p-4 font-black text-teal-700">2026.09.21</td></tr>
+            <tr><td class="p-4 font-bold">어린이 1회 접종</td><td class="p-4">2012.01.01~2026.08.31 출생 중 2회 대상이 아닌 어린이</td><td class="p-4 font-black text-teal-700">2026.09.28</td></tr>
+            <tr><td class="p-4 font-bold">임신부</td><td class="p-4">임신확인 서류를 제시할 수 있는 임신부, 주수 무관</td><td class="p-4 font-black text-teal-700">2026.09.21</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-4 text-xs text-slate-500">어린이는 접종일 기준 생후 6개월 이상이어야 합니다. 주민등록상 생년월일과 실제 생년월일이 다르면 실제 생년월일을 기준으로 지원합니다.</p>
+    </section>
+
+    <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+      <div class="flex items-center gap-3 mb-5"><span class="w-9 h-9 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center font-black">2</span><h2 class="text-xl sm:text-2xl font-black text-slate-900">위탁의료기관 방문 순서</h2></div>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="rounded-2xl bg-slate-50 p-5"><span class="text-xs font-black text-blue-700">STEP 1</span><strong class="block mt-2 text-slate-900">기관 검색</strong><p class="mt-2 text-xs leading-relaxed text-slate-600">예방접종도우미에서 지역과 지원 백신을 선택합니다.</p></div>
+        <div class="rounded-2xl bg-slate-50 p-5"><span class="text-xs font-black text-blue-700">STEP 2</span><strong class="block mt-2 text-slate-900">전화 확인</strong><p class="mt-2 text-xs leading-relaxed text-slate-600">방문 전 백신 재고와 어린이·임신부 접종 시간을 확인합니다.</p></div>
+        <div class="rounded-2xl bg-slate-50 p-5"><span class="text-xs font-black text-blue-700">STEP 3</span><strong class="block mt-2 text-slate-900">서류 지참</strong><p class="mt-2 text-xs leading-relaxed text-slate-600">보호자 신분증과 아이 정보, 임신부는 임신확인 서류를 준비합니다.</p></div>
+      </div>
+      <div class="mt-6 text-center">
+        <a href={officialUrl} target="_blank" rel="noopener noreferrer" data-ga4-cta="nip_flu_official" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-teal-600 hover:bg-teal-700 text-white font-black px-6 py-3.5 shadow-lg shadow-teal-600/20 transition-colors">질병관리청 대상·기관 안내 확인하기 <span>↗</span></a>
+      </div>
+    </section>
+
+    <AdSense slotId="2752528052" format="auto" />
+
+    <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+      <div class="flex items-center gap-3 mb-5"><span class="w-9 h-9 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center font-black">?</span><h2 class="text-xl sm:text-2xl font-black text-slate-900">자주 묻는 질문</h2></div>
+      <div class="space-y-3">
+        {faqItems.map((item) => (
+          <details class="group rounded-2xl bg-slate-50 border border-slate-100 p-4 [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-bold text-slate-900"><span>{item.question}</span><span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span></summary>
+            <p class="mt-3 pt-3 border-t border-slate-200 text-sm leading-relaxed text-slate-600">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <div class="rounded-2xl bg-slate-100 border border-slate-200 px-5 py-4 text-xs leading-relaxed text-slate-600">
+      <strong class="text-slate-800">자료 기준</strong> · 질병관리청 예방접종도우미 ‘2026-2027절기 인플루엔자 국가예방접종 사업’, 최종검토일 2026년 8월 25일. 이 페이지는 대상과 이용 절차를 정리한 정보이며 개인의 접종 가능 여부를 의료적으로 판단하지 않습니다.
+    </div>
+  </div>
+
+  <script is:inline>
+    function addMonths(date, months) {
+      var copy = new Date(date.getTime());
+      copy.setMonth(copy.getMonth() + months);
+      return copy;
+    }
+
+    function formatDate(date) {
+      return date.getFullYear() + '년 ' + (date.getMonth() + 1) + '월 ' + date.getDate() + '일';
+    }
+
+    var checker = document.getElementById('flu-checker');
+    var result = document.getElementById('flu-result');
+    if (checker && result) {
+      checker.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var birthValue = document.getElementById('child-birthdate').value;
+        var history = document.getElementById('flu-history').value;
+        if (!birthValue || !history) return;
+
+        var birth = new Date(birthValue + 'T00:00:00');
+        var eligibleStart = new Date('2012-01-01T00:00:00');
+        var eligibleEnd = new Date('2026-08-31T00:00:00');
+        var programStart = new Date('2026-09-21T00:00:00');
+        var oneDoseStart = new Date('2026-09-28T00:00:00');
+        var nineYears = new Date(birth.getTime());
+        nineYears.setFullYear(nineYears.getFullYear() + 9);
+        var sixMonthDate = addMonths(birth, 6);
+
+        result.className = 'mt-5 rounded-2xl border p-5';
+        if (birth < eligibleStart || birth > eligibleEnd) {
+          result.classList.add('border-amber-200', 'bg-amber-50', 'text-amber-950');
+          result.innerHTML = '<strong class="block text-lg">어린이 무료접종 출생일 범위에 해당하지 않습니다.</strong><p class="mt-2 text-sm leading-relaxed">2026-2027절기 어린이 지원 출생일은 2012년 1월 1일부터 2026년 8월 31일까지입니다. 다른 지원 대상 여부는 질병관리청 공식 안내에서 확인하세요.</p>';
+          return;
+        }
+
+        var underNineAtStart = programStart < nineYears;
+        var twoDose = underNineAtStart && (history === 'none-or-unknown' || history === 'one');
+        var baseStart = twoDose ? programStart : oneDoseStart;
+        var actualStart = sixMonthDate > baseStart ? sixMonthDate : baseStart;
+        var label = twoDose ? '2회 접종 대상 가능성이 높습니다.' : '1회 접종 대상입니다.';
+        var note = twoDose ? '독감을 처음 접종하거나 접종력을 모르거나, 2026년 6월 30일까지 총 1회만 접종한 9세 미만 어린이 기준입니다.' : '이전 접종력과 나이를 기준으로 1회 접종 일정이 적용됩니다.';
+
+        result.classList.add('border-teal-200', 'bg-teal-50', 'text-teal-950');
+        result.innerHTML = '<span class="text-xs font-black text-teal-700">확인 결과</span><strong class="block mt-1 text-xl">' + label + '</strong><p class="mt-2 text-sm">가장 빠른 무료접종 시작일: <b>' + formatDate(actualStart) + '</b></p><p class="mt-2 text-xs leading-relaxed text-teal-900/80">' + note + ' 생후 6개월 도달일과 실제 접종 기록에 따라 달라질 수 있으니 위탁의료기관의 예진의사와 최종 확인하세요.</p>';
+
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'flu_eligibility_check', { result_type: twoDose ? 'two_dose' : 'one_dose' });
+        }
+      });
+    }
+
+    document.querySelectorAll('[data-ga4-cta]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'flu_cta_click', { cta_id: link.getAttribute('data-ga4-cta'), link_url: link.href });
+        }
+      });
+    });
+  </script>
+</BaseLayout>
